@@ -4,26 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Myntra Clone</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body style="font-family: Arial, sans-serif; margin: 0; padding: 0;">
+<body>
 
-    <header style="background-color: #ffffff; padding: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); display: flex; justify-content: space-between; align-items: center;">
-        <div style="color: #ff3f6c; font-weight: bold; font-size: 24px;">Myntra Clone</div>
+    <header>
+        <a href="#" class="logo">Myntra</a>
         <nav>
-            <a href="#" style="margin: 0 10px; text-decoration: none; color: #282c3f; font-weight: bold;">Men</a>
-            <a href="#" style="margin: 0 10px; text-decoration: none; color: #282c3f; font-weight: bold;">Women</a>
-            <a href="#" style="margin: 0 10px; text-decoration: none; color: #282c3f; font-weight: bold;">Kids</a>
+            <a href="#">Men</a>
+            <a href="#">Women</a>
+            <a href="#">Kids</a>
         </nav>
     </header>
 
-    <main style="padding: 20px; text-align: center;">
-        <h2 style="color: #282c3f;">BIG FASHION FESTIVAL</h2>
-        
-        <div style="border: 1px solid #eaeaec; width: 200px; margin: 20px auto; padding: 15px; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-            <div style="background-color: #f5f5f6; height: 150px; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; color: #a9abb2;">Product Image</div>
-            <h4 style="margin: 5px 0; color: #282c3f;">Stylish T-Shirt</h4>
-            <p style="margin: 5px 0; color: #ff3f6c; font-weight: bold;">₹499</p>
-            <button style="background-color: #ff3f6c; color: white; border: none; padding: 8px 15px; width: 100%; border-radius: 4px; font-weight: bold; cursor: pointer;">Add to Bag</button>
+    <main>
+        <h2>Trending Fashion</h2>
+        <div class="product-container">
+            
+            <div class="product-card">
+                <div class="image-placeholder">T-Shirt Image</div>
+                <div class="product-details">
+                    <h4>Casual Pink T-Shirt</h4>
+                    <p>₹499</p>
+                </div>
+                <button class="btn-add">Add to Bag</button>
+            </div>
+
+            <div class="product-card">
+                <div class="image-placeholder">Dress Image</div>
+                <div class="product-details">
+                    <h4>Summer Dress</h4>
+                    <p>₹999</p>
+                </div>
+                <button class="btn-add">Add to Bag</button>
+            </div>
+
         </div>
     </main>
 
