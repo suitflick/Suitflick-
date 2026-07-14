@@ -1,34 +1,58 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Cart</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cart | SuitFlick</title>
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <header>
+
 <div class="logo">SuitFlick</div>
 
 <nav>
 <a href="index.html">Home</a>
 <a href="shop.html">Shop</a>
 <a href="cart.html">Cart</a>
-<a href="contact.html">Contact</a>
 </nav>
 
 </header>
 
-<section class="products">
+<h2 style="text-align:center;margin-top:20px;">Shopping Cart</h2>
 
-<h2>Your Cart</h2>
+<div id="cartItems"></div>
 
-<p>Your selected products will appear here.</p>
+<h2 id="total" style="text-align:center;"></h2>
 
-<button onclick="location.href='contact.html'">
-Proceed to Checkout
-</button>
+<script src="script.js"></script>
 
-</section>
+<script>
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+let cartItems = document.getElementById("cartItems");
+
+let total = 0;
+
+cart.forEach(function(item){
+
+cartItems.innerHTML += `
+<div class="product-card">
+<h3>${item.name}</h3>
+<p>₹${item.price}</p>
+</div>
+`;
+
+total += item.price;
+
+});
+
+document.getElementById("total").innerHTML="Total : ₹"+total;
+
+</script>
 
 </body>
 </html>
