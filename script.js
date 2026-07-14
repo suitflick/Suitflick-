@@ -182,3 +182,34 @@ wishlistItems.innerHTML += `
 }
 
 window.addEventListener("load", loadWishlist);
+function increaseQty(index){
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+cart[index].quantity++;
+
+localStorage.setItem("cart",JSON.stringify(cart));
+
+loadCart();
+
+}
+
+function decreaseQty(index){
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+if(cart[index].quantity>1){
+
+cart[index].quantity--;
+
+}else{
+
+cart.splice(index,1);
+
+}
+
+localStorage.setItem("cart",JSON.stringify(cart));
+
+loadCart();
+
+}
