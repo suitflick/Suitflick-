@@ -287,3 +287,36 @@ border:none;
 border-radius:8px;
 cursor:pointer;
 }
+.product-details{
+display:flex;
+flex-wrap:wrap;
+gap:30px;
+padding:30px;
+align-items:center;
+justify-content:center;
+}
+
+.product-image img{
+width:320px;
+border-radius:10px;
+}
+
+.product-info{
+max-width:400px;
+}
+
+.product-info button{
+margin-top:20px;
+padding:12px 25px;
+background:#ff3f6c;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+font-size:16px;
+}
+
+.product-info select{
+padding:10px;
+width:120px;
+}
