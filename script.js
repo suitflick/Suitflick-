@@ -133,3 +133,19 @@ function clearCart() {
 window.onload = function () {
     loadCart();
 };
+// Wishlist
+
+function addToWishlist(name, price){
+
+let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+wishlist.push({
+name:name,
+price:price
+});
+
+localStorage.setItem("wishlist",JSON.stringify(wishlist));
+
+alert(name + " added to Wishlist ❤️");
+
+}
