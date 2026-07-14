@@ -10,9 +10,9 @@
 <body>
 
 <header>
+
 <div class="logo">SuitFlick</div>
 
-<nav>
 <nav>
 <a href="index.html">Home</a>
 <a href="shop.html">Shop</a>
@@ -30,11 +30,16 @@
 
 <h2>Women's Collection</h2>
 
-<input type="text" placeholder="Search Products..." class="search">
+<input
+type="text"
+id="searchInput"
+placeholder="Search Products..."
+class="search"
+onkeyup="searchProducts()">
 
 <div class="product-grid">
 
-<div class="product">
+<div class="product-card">
 <img src="https://via.placeholder.com/300x400?text=Suit+1">
 <h3>Floral Cotton Suit</h3>
 <p>₹999</p>
@@ -42,7 +47,7 @@
 <button onclick="location.href='product.html'">View Details</button>
 </div>
 
-<div class="product">
+<div class="product-card">
 <img src="https://via.placeholder.com/300x400?text=Suit+2">
 <h3>Party Wear Suit</h3>
 <p>₹1499</p>
@@ -50,7 +55,7 @@
 <button onclick="location.href='product.html'">View Details</button>
 </div>
 
-<div class="product">
+<div class="product-card">
 <img src="https://via.placeholder.com/300x400?text=Suit+3">
 <h3>Anarkali Suit</h3>
 <p>₹1999</p>
