@@ -149,3 +149,35 @@ localStorage.setItem("wishlist",JSON.stringify(wishlist));
 alert(name + " added to Wishlist ❤️");
 
 }
+function loadWishlist(){
+
+let wishlistItems = document.getElementById("wishlistItems");
+
+if(!wishlistItems) return;
+
+let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+wishlistItems.innerHTML="";
+
+if(wishlist.length===0){
+
+wishlistItems.innerHTML="<h3>Your Wishlist is Empty ❤️</h3>";
+
+return;
+
+}
+
+wishlist.forEach(function(item){
+
+wishlistItems.innerHTML += `
+<div class="product-card">
+<h3>${item.name}</h3>
+<p>₹${item.price}</p>
+</div>
+`;
+
+});
+
+}
+
+window.addEventListener("load", loadWishlist);
