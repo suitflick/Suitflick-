@@ -3,13 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Product | SuitFlick</title>
+<title>Product Details | SuitFlick</title>
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <header>
 <div class="logo">SuitFlick</div>
+
 <nav>
 <a href="index.html">Home</a>
 <a href="shop.html">Shop</a>
@@ -18,21 +20,84 @@
 </nav>
 </header>
 
-<section class="products">
-<div class="product">
-<img src="https://via.placeholder.com/300x400?text=Suit">
-<h2>Premium Women's Suit</h2>
-<p>₹1499</p>
-<p>Available Sizes: S, M, L, XL</p>
+<section class="product-details">
 
-<button>Add to Cart</button>
+<div class="product-image">
+<img id="productImage" src="" alt="Product">
+</div>
 
-<a href="contact.html">
-<button>Buy on WhatsApp</button>
-</a>
+<div class="product-info">
+
+<h2 id="productName"></h2>
+
+<h3 id="productPrice"></h3>
+
+<p>⭐⭐⭐⭐☆ (4.5/5)</p>
+
+<p>
+Premium quality women's suit with soft fabric and elegant design.
+</p>
+
+<h4>Select Size</h4>
+
+<select>
+<option>S</option>
+<option>M</option>
+<option>L</option>
+<option>XL</option>
+</select>
+
+<br><br>
+
+<button id="cartBtn">
+Add To Cart
+</button>
 
 </div>
+
 </section>
+
+<script>
+
+const products = {
+
+1:{
+name:"Floral Cotton Suit",
+price:999,
+image:"https://via.placeholder.com/400x500?text=Floral+Suit"
+},
+
+2:{
+name:"Party Wear Suit",
+price:1499,
+image:"https://via.placeholder.com/400x500?text=Party+Wear"
+},
+
+3:{
+name:"Anarkali Suit",
+price:1999,
+image:"https://via.placeholder.com/400x500?text=Anarkali"
+}
+
+};
+
+let id=new URLSearchParams(window.location.search).get("id");
+
+let product=products[id];
+
+document.getElementById("productName").innerHTML=product.name;
+
+document.getElementById("productPrice").innerHTML="₹"+product.price;
+
+document.getElementById("productImage").src=product.image;
+
+document.getElementById("cartBtn").onclick=function(){
+
+addToCart(product.name,product.price);
+
+};
+
+</script>
 
 <script src="script.js"></script>
 
