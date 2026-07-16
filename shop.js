@@ -37,9 +37,7 @@ async function loadProducts() {
           Add To Cart
         </button>
 
-        <button onclick="window.location.href='product.html?id=${doc.id}'">
-          View Details
-        </button>
+
 
       </div>
 
