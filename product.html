@@ -10,14 +10,17 @@
 <body>
 
 <header>
+
 <div class="logo">SuitFlick</div>
 
 <nav>
 <a href="index.html">Home</a>
 <a href="shop.html">Shop</a>
+<a href="wishlist.html">Wishlist</a>
 <a href="cart.html">Cart</a>
 <a href="contact.html">Contact</a>
 </nav>
+
 </header>
 
 <section class="product-details">
@@ -35,12 +38,12 @@
 <p>⭐⭐⭐⭐☆ (4.5/5)</p>
 
 <p>
-Premium quality women's suit with soft fabric and elegant design.
+Premium Quality Women's Suit with Soft Fabric and Elegant Design.
 </p>
 
 <h4>Select Size</h4>
 
-<select>
+<select id="size">
 <option>S</option>
 <option>M</option>
 <option>L</option>
@@ -49,13 +52,30 @@ Premium quality women's suit with soft fabric and elegant design.
 
 <br><br>
 
+<h4>Quantity</h4>
+
+<input
+type="number"
+id="qty"
+value="1"
+min="1"
+max="10">
+
+<br><br>
+
 <button id="cartBtn">
 Add To Cart
+</button>
+
+<button onclick="location.href='checkout.html'">
+Buy Now
 </button>
 
 </div>
 
 </section>
+
+<script src="script.js"></script>
 
 <script>
 
@@ -81,25 +101,35 @@ image:"https://via.placeholder.com/400x500?text=Anarkali"
 
 };
 
-let id=new URLSearchParams(window.location.search).get("id");
+let id = new URLSearchParams(window.location.search).get("id");
 
-let product=products[id];
+if(!id){
+id = "1";
+}
 
-document.getElementById("productName").innerHTML=product.name;
+let product = products[id];
 
-document.getElementById("productPrice").innerHTML="₹"+product.price;
+document.getElementById("productName").innerHTML = product.name;
 
-document.getElementById("productImage").src=product.image;
+document.getElementById("productPrice").innerHTML = "₹" + product.price;
 
-document.getElementById("cartBtn").onclick=function(){
+document.getElementById("productImage").src = product.image;
+
+document.getElementById("cartBtn").onclick = function(){
+
+let qty = parseInt(document.getElementById("qty").value);
+
+for(let i=0;i<qty;i++){
 
 addToCart(product.name,product.price);
+
+}
+
+alert("Product Added Successfully 🛒");
 
 };
 
 </script>
-
-<script src="script.js"></script>
 
 </body>
 </html>
