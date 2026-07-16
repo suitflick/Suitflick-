@@ -361,3 +361,33 @@ background:#222;
 color:#fff;
 text-align:center;
 }
+.menu-icon{
+display:none;
+font-size:30px;
+cursor:pointer;
+padding:10px;
+}
+
+@media(max-width:768px){
+
+.menu-icon{
+display:block;
+}
+
+nav{
+display:none;
+flex-direction:column;
+width:100%;
+background:#fff;
+}
+
+nav.show{
+display:flex;
+}
+
+nav a{
+padding:12px;
+border-bottom:1px solid #ddd;
+}
+
+}
