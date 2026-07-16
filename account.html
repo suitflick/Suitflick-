@@ -18,6 +18,7 @@
 <a href="shop.html">Shop</a>
 <a href="wishlist.html">Wishlist</a>
 <a href="cart.html">Cart</a>
+<a href="account.html">Account</a>
 <a href="contact.html">Contact</a>
 </nav>
 
@@ -27,21 +28,38 @@
 
 <h2>My Account</h2>
 
-<input type="text" placeholder="Full Name">
+<input
+type="text"
+id="name"
+placeholder="Full Name">
 
 <br><br>
 
-<input type="email" placeholder="Email">
+<input
+type="email"
+id="email"
+placeholder="Email Address">
 
 <br><br>
 
-<input type="password" placeholder="Password">
+<input
+type="password"
+id="password"
+placeholder="Password">
 
 <br><br>
 
-<button>Login</button>
+<button onclick="signup()">
+Sign Up
+</button>
 
-<button>Sign Up</button>
+<button onclick="login()">
+Login
+</button>
+
+<button onclick="logout()">
+Logout
+</button>
 
 </section>
 
