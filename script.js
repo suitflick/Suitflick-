@@ -239,3 +239,18 @@ function toggleMenu(){
 document.getElementById("navbar").classList.toggle("show");
 
 }
+function updateCartCount(){
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+let count = document.getElementById("cartCount");
+
+if(count){
+
+count.innerHTML = cart.length;
+
+}
+
+}
+
+window.addEventListener("load", updateCartCount);
