@@ -234,3 +234,8 @@ function logout(){
 alert("Logged Out Successfully");
 
 }
+function toggleMenu(){
+
+document.getElementById("navbar").classList.toggle("show");
+
+}
