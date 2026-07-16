@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout | SuitFlick</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">SuitFlick</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="shop.html">Shop</a>
+<a href="wishlist.html">Wishlist</a>
+<a href="cart.html">Cart</a>
+<a href="account.html">Account</a>
+<a href="contact.html">Contact</a>
+</nav>
+
+</header>
+
+<section class="checkout">
+
+<h2>Checkout</h2>
+
+<form>
+
+<label>Full Name</label><br>
+<input type="text" placeholder="Enter your full name" required>
+
+<br><br>
+
+<label>Mobile Number</label><br>
+<input type="tel" placeholder="Enter your mobile number" required>
+
+<br><br>
+
+<label>Email</label><br>
+<input type="email" placeholder="Enter your email">
+
+<br><br>
+
+<label>Delivery Address</label><br>
+<textarea placeholder="Enter your full address" rows="4" required></textarea>
+
+<br><br>
+
+<label>Pincode</label><br>
+<input type="number" placeholder="Enter Pincode" required>
+
+<br><br>
+
+<label>Payment Method</label><br>
+
+<select>
+<option>Cash on Delivery (COD)</option>
+<option>Online Payment (Coming Soon)</option>
+</select>
+
+<br><br>
+
+<button type="submit">
+Place Order
+</button>
+
+</form>
+
+</section>
+
+<script>
+document.querySelector("form").addEventListener("submit", function(e){
+
+e.preventDefault();
+
+alert("🎉 Order Placed Successfully!");
+
+localStorage.removeItem("cart");
+
+window.location.href="index.html";
+
+});
+</script>
+
+</body>
+</html>
