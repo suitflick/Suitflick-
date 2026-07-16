@@ -13,7 +13,9 @@
 
 <div class="logo">SuitFlick</div>
 
-<nav>
+<div class="menu-icon" onclick="toggleMenu()">☰</div>
+
+<nav id="navbar">
 <a href="index.html">Home</a>
 <a href="shop.html">Shop</a>
 <a href="wishlist.html">Wishlist</a>
@@ -33,15 +35,13 @@
 
 <div class="product-info">
 
-<h2 id="productName"></h2>
+<h2 id="productName">Loading...</h2>
 
 <h3 id="productPrice"></h3>
 
-<p>⭐⭐⭐⭐☆ (4.5/5)</p>
+<p id="productDescription"></p>
 
-<p>
-Premium Quality Women's Suit with Soft Fabric and Elegant Design.
-</p>
+<p>⭐⭐⭐⭐☆ (4.5/5)</p>
 
 <h4>Select Size</h4>
 
@@ -79,59 +79,7 @@ Buy Now
 
 <script src="script.js"></script>
 
-<script>
-
-const products = {
-
-1:{
-name:"Floral Cotton Suit",
-price:999,
-image:"https://via.placeholder.com/400x500?text=Floral+Suit"
-},
-
-2:{
-name:"Party Wear Suit",
-price:1499,
-image:"https://via.placeholder.com/400x500?text=Party+Wear"
-},
-
-3:{
-name:"Anarkali Suit",
-price:1999,
-image:"https://via.placeholder.com/400x500?text=Anarkali"
-}
-
-};
-
-let id = new URLSearchParams(window.location.search).get("id");
-
-if(!id){
-id = "1";
-}
-
-let product = products[id];
-
-document.getElementById("productName").innerHTML = product.name;
-
-document.getElementById("productPrice").innerHTML = "₹" + product.price;
-
-document.getElementById("productImage").src = product.image;
-
-document.getElementById("cartBtn").onclick = function(){
-
-let qty = parseInt(document.getElementById("qty").value);
-
-for(let i=0;i<qty;i++){
-
-addToCart(product.name,product.price);
-
-}
-
-alert("Product Added Successfully 🛒");
-
-};
-
-</script>
+<script type="module" src="product.js"></script>
 
 </body>
 </html>
