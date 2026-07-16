@@ -213,3 +213,24 @@ localStorage.setItem("cart",JSON.stringify(cart));
 loadCart();
 
 }
+// ==========================
+// Account Functions
+// ==========================
+
+function signup(){
+
+alert("Sign Up feature coming soon");
+
+}
+
+function login(){
+
+alert("Login feature coming soon");
+
+}
+
+function logout(){
+
+alert("Logged Out Successfully");
+
+}
