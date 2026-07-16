@@ -1,45 +1,64 @@
 import { db } from "./firebase.js";
 
 import {
-collection,
-getDocs
+  collection,
+  getDocs
 } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
-async function loadProducts(){
+async function loadProducts() {
 
-const productsContainer = document.querySelector(".product-grid");
+  const productsContainer = document.querySelector(".product-grid");
 
-productsContainer.innerHTML = "";
+  productsContainer.innerHTML = "";
 
-const querySnapshot = await getDocs(collection(db,"products"));
+  try {
 
-querySnapshot.forEach((doc)=>{
+    const querySnapshot = await getDocs(collection(db, "products"));
 
-const product = doc.data();
+    querySnapshot.forEach((doc) => {
 
-productsContainer.innerHTML += `
+      const product = doc.data();
 
-<div class="product-card">
+      productsContainer.innerHTML += `
 
-<img src="${product.image}" alt="${product.name}">
+      <div class="product-card">
 
-<h3>${product.name}</h3>
+        <img src="${product.image}" alt="${product.name}">
 
-<p>₹${product.price}</p>
+        <h3>${product.name}</h3>
 
-<button onclick="addToWishlist('${product.name}',${product.price})">
-♡ Wishlist
-</button>
+        <p>₹${product.price}</p>
 
-<button onclick="addToCart('${product.name}',${product.price})">
-Add To Cart
-</button>
+        <button onclick="addToWishlist('${product.name}', ${product.price})">
+          ♡ Wishlist
+        </button>
 
-</div>
+        <button onclick="addToCart('${product.name}', ${product.price})">
+          Add To Cart
+        </button>
 
-`;
+        <button onclick="window.location.href='product.html?id=${doc.id}'">
+          View Details
+        </button>
 
-});
+      </div>
+
+      `;
+
+    });
+
+    if (querySnapshot.empty) {
+      productsContainer.innerHTML = "<h3>No Products Available</h3>";
+    }
+
+  } catch (error) {
+
+    console.error(error);
+
+    productsContainer.innerHTML =
+      "<h3>❌ Error Loading Products</h3>";
+
+  }
 
 }
 
