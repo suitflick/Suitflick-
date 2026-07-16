@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +17,10 @@
 <nav>
 <a href="index.html">Home</a>
 <a href="shop.html">Shop</a>
+<a href="wishlist.html">Wishlist</a>
+<a href="cart.html">Cart</a>
 <a href="account.html">Account</a>
+<a href="contact.html">Contact</a>
 </nav>
 
 </header>
@@ -25,25 +29,104 @@
 
 <h2>Add New Product</h2>
 
-<input type="text" placeholder="Product Name">
+<input
+type="text"
+id="productName"
+placeholder="Product Name">
 
 <br><br>
 
-<input type="number" placeholder="Price">
+<input
+type="number"
+id="productPrice"
+placeholder="Product Price">
 
 <br><br>
 
-<input type="text" placeholder="Image URL">
+<input
+type="text"
+id="productImage"
+placeholder="Product Image URL">
 
 <br><br>
 
-<button onclick="alert('Next step: Firebase se product save karenge')">
+<textarea
+id="productDescription"
+placeholder="Product Description"
+rows="4">
+</textarea>
+
+<br><br>
+
+<button id="addProductBtn">
 Add Product
 </button>
 
+<p id="message"></p>
+
 </section>
 
-<script src="script.js"></script>
+<script type="module">
+
+import { db } from "./firebase.js";
+
+import {
+collection,
+addDoc
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+
+document.getElementById("addProductBtn").onclick = async function(){
+
+let name = document.getElementById("productName").value;
+
+let price = Number(document.getElementById("productPrice").value);
+
+let image = document.getElementById("productImage").value;
+
+let description =
+document.getElementById("productDescription").value;
+
+if(name==="" || price==="" || image===""){
+
+alert("Please fill all fields");
+
+return;
+
+}
+
+try{
+
+await addDoc(collection(db,"products"),{
+
+name:name,
+
+price:price,
+
+image:image,
+
+description:description
+
+});
+
+document.getElementById("message").innerHTML="✅ Product Added Successfully";
+
+document.getElementById("productName").value="";
+
+document.getElementById("productPrice").value="";
+
+document.getElementById("productImage").value="";
+
+document.getElementById("productDescription").value="";
+
+}catch(error){
+
+alert(error);
+
+}
+
+};
+
+</script>
 
 </body>
 </html>
