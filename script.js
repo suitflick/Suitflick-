@@ -181,7 +181,6 @@ wishlistItems.innerHTML += `
 
 }
 
-window.addEventListener("load", loadWishlist);
 function increaseQty(index){
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -253,4 +252,8 @@ count.innerHTML = cart.length;
 
 }
 
-window.addEventListener("load", updateCartCount);
+window.addEventListener("load", function () {
+    loadCart();
+    loadWishlist();
+    updateCartCount();
+});
