@@ -1,17 +1,15 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin Panel | SuitFlick</title>
+<title>SuitFlick Admin</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <header>
-
 <div class="logo">SuitFlick Admin</div>
 
 <nav>
@@ -22,45 +20,29 @@
 <a href="account.html">Account</a>
 <a href="contact.html">Contact</a>
 </nav>
-
 </header>
 
 <section class="account">
 
 <h2>Add New Product</h2>
 
-<input
-type="text"
-id="productName"
-placeholder="Product Name">
+<input type="text" id="productName" placeholder="Product Name">
 
 <br><br>
 
-<input
-type="number"
-id="productPrice"
-placeholder="Product Price">
+<input type="number" id="productPrice" placeholder="Product Price">
 
 <br><br>
 
-<input
-type="text"
-id="productImage"
-placeholder="Product Image URL">
+<input type="text" id="productImage" placeholder="Image URL">
 
 <br><br>
 
-<textarea
-id="productDescription"
-placeholder="Product Description"
-rows="4">
-</textarea>
+<textarea id="productDescription" rows="5" placeholder="Product Description"></textarea>
 
 <br><br>
 
-<button id="addProductBtn">
-Add Product
-</button>
+<button id="addProductBtn">Add Product</button>
 
 <p id="message"></p>
 
@@ -75,20 +57,21 @@ collection,
 addDoc
 } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
-document.getElementById("addProductBtn").onclick = async function(){
+const btn = document.getElementById("addProductBtn");
 
-let name = document.getElementById("productName").value;
+btn.addEventListener("click", async () => {
 
-let price = Number(document.getElementById("productPrice").value);
+const name = document.getElementById("productName").value.trim();
 
-let image = document.getElementById("productImage").value;
+const price = Number(document.getElementById("productPrice").value);
 
-let description =
-document.getElementById("productDescription").value;
+const image = document.getElementById("productImage").value.trim();
 
-if(name==="" || price==="" || image===""){
+const description = document.getElementById("productDescription").value.trim();
 
-alert("Please fill all fields");
+if(!name || !price || !image){
+
+alert("Please fill all required fields.");
 
 return;
 
@@ -98,13 +81,13 @@ try{
 
 await addDoc(collection(db,"products"),{
 
-name:name,
+name,
 
-price:price,
+price,
 
-image:image,
+image,
 
-description:description
+description
 
 });
 
@@ -118,13 +101,13 @@ document.getElementById("productImage").value="";
 
 document.getElementById("productDescription").value="";
 
-}catch(error){
+}catch(err){
 
-alert(error);
+alert("Error : " + err.message);
 
 }
 
-};
+});
 
 </script>
 
