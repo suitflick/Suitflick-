@@ -348,3 +348,16 @@ border-radius:8px;
 font-size:18px;
 cursor:pointer;
 }
+.offers,
+.categories{
+padding:40px 20px;
+text-align:center;
+}
+
+footer{
+margin-top:40px;
+padding:20px;
+background:#222;
+color:#fff;
+text-align:center;
+}
