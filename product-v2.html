@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Product Details | SuitFlick</title>
+
+<link rel="stylesheet" href="style-v2.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">SuitFlick</div>
+
+<div class="menu-icon" onclick="toggleMenu()">☰</div>
+
+<nav id="navbar">
+
+<a href="index.html">Home</a>
+
+<a href="shop.html">Shop</a>
+
+<a href="wishlist.html">Wishlist</a>
+
+<a href="cart.html">
+Cart (<span id="cartCount">0</span>)
+</a>
+
+<a href="account.html">Account</a>
+
+</nav>
+
+</header>
+
+<section class="product-details">
+
+<div class="product-image">
+
+<img id="productImage" src="images/partywear-1.jpg" alt="Suit">
+
+</div>
+
+<div class="product-info">
+
+<h2 id="productName">
+Designer Party Wear Suit
+</h2>
+
+<h3 id="productPrice">
+₹2499
+</h3>
+
+<p>
+⭐⭐⭐⭐⭐ (4.8/5) | 1,250+ Reviews
+</p>
+
+<p>
+Beautiful Indian ethnic wear crafted with premium fabric for festive occasions, weddings and parties.
+</p>
+
+<label>Select Size</label>
+
+<select>
+
+<option>S</option>
+
+<option>M</option>
+
+<option>L</option>
+
+<option>XL</option>
+
+<option>XXL</option>
+
+</select>
+
+<button onclick="addToCart('Designer Party Wear Suit',2499)">
+🛒 Add To Cart
+</button>
+
+<button onclick="addToWishlist('Designer Party Wear Suit',2499)">
+❤️ Add To Wishlist
+</button>
+
+</div>
+
+</section>
+<section class="offers">
+
+<h2>Product Highlights</h2>
+
+<div class="product-grid">
+
+<div class="product-card">
+<h3>🚚 Free Delivery</h3>
+<p>Available on orders above ₹999</p>
+</div>
+
+<div class="product-card">
+<h3>🔄 Easy Returns</h3>
+<p>7 Days Hassle-Free Return Policy</p>
+</div>
+
+<div class="product-card">
+<h3>🔒 Secure Payment</h3>
+<p>100% Safe & Secure Checkout</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="products">
+
+<h2>You May Also Like</h2>
+
+<div class="product-grid">
+
+<div class="product-card">
+
+<img src="images/partywear-1.jpg" alt="Kurta Set">
+
+<h3>Premium Kurta Set</h3>
+
+<p>₹1799</p>
+
+<button onclick="location.href='product.html?id=2'">
+View Details
+</button>
+
+</div>
+
+<div class="product-card">
+
+<img src="https://via.placeholder.com/350x450?text=Anarkali" alt="Anarkali">
+
+<h3>Royal Anarkali</h3>
+
+<p>₹2699</p>
+
+<button onclick="location.href='product.html?id=3'">
+View Details
+</button>
+
+</div>
+
+<div class="product-card">
+
+<img src="https://via.placeholder.com/350x450?text=Sharara" alt="Sharara">
+
+<h3>Sharara Set</h3>
+
+<p>₹2299</p>
+
+<button onclick="location.href='product.html?id=4'">
+View Details
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<h3>SuitFlick</h3>
+
+<p>Premium Indian Women's Ethnic Wear</p>
+
+<p>© 2026 SuitFlick. All Rights Reserved.</p>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
