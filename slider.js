@@ -1,7 +1,7 @@
 const slides = [
-"https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=80",
-"https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=80",
-"https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=80"
+"https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg",
+"https://images.pexels.com/photos/775358/pexels-photo-775358.jpeg",
+"https://images.pexels.com/photos/985635/pexels-photo-985635.jpeg"
 ];
 
 let current = 0;
