@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Shop | SuitFlick</title>
+
+<link rel="stylesheet" href="style-v2.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="offer-banner">
+✨ Flat 20% OFF on Selected Collection | Free Shipping Above ₹999
+</div>
+
+<header>
+
+<div class="logo">
+SuitFlick
+</div>
+
+<div class="menu-icon" onclick="toggleMenu()">
+☰
+</div>
+
+<nav id="navbar">
+
+<a href="index.html">Home</a>
+
+<a href="shop.html">Shop</a>
+
+<a href="wishlist.html">Wishlist ❤️</a>
+
+<a href="cart.html">
+Cart (<span id="cartCount">0</span>)
+</a>
+
+<a href="account.html">Account</a>
+
+<a href="contact.html">Contact</a>
+
+</nav>
+
+</header>
+
+<section class="products">
+
+<h2>Shop Our Collection</h2>
+
+<input
+type="text"
+id="searchInput"
+class="search"
+placeholder="Search Suits..."
+onkeyup="searchProducts()">
+
+<div class="product-grid">
+
+<div class="product-card">
+
+<span class="badge">NEW</span>
+
+<img src="images/partywear-1.jpg">
+
+<h3>Designer Party Wear Suit</h3>
+
+<p>₹2499</p>
+
+<button onclick="location.href='product.html?id=1'">
+View Details
+</button>
+
+</div>
+
+<div class="product-card">
+
+<span class="badge">BESTSELLER</span>
+
+<img src="images/partywear-2.jpg">
+
+<h3>Elegant Kurta Set</h3>
+
+<p>₹1899</p>
+
+<button onclick="location.href='product.html?id=2'">
+View Details
+</button>
+
+</div>
+
+<div class="product-card">
+
+<span class="badge">SALE</span>
+
+<img src="https://via.placeholder.com/350x450?text=Coming+Soon">
+
+<h3>Wedding Collection</h3>
+
+<p>₹3499</p>
+
+<button onclick="location.href='product.html?id=3'">
+View Details
+</button>
+
+</div>
+
+<div class="product-card">
+
+<span class="badge">NEW</span>
+
+<img src="https://via.placeholder.com/350x450?text=Anarkali">
+
+<h3>Royal Anarkali Suit</h3>
+
+<p>₹2799</p>
+
+<button onclick="location.href='product.html?id=4'">
+View Details
+</button>
+
+</div>
+
+<div class="product-card">
+
+<span class="badge">TRENDING</span>
+
+<img src="https://via.placeholder.com/350x450?text=Cotton+Suit">
+
+<h3>Premium Cotton Suit</h3>
+
+<p>₹1499</p>
+
+<button onclick="location.href='product.html?id=5'">
+View Details
+</button>
+
+</div>
+
+<div class="product-card">
+
+<span class="badge">NEW</span>
+
+<img src="https://via.placeholder.com/350x450?text=Sharara">
+
+<h3>Sharara Suit Set</h3>
+
+<p>₹2299</p>
+
+<button onclick="location.href='product.html?id=6'">
+View Details
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<h3>SuitFlick</h3>
+
+<p>
+Premium Indian Women's Ethnic Wear Collection
+</p>
+
+<p>
+© 2026 SuitFlick. All Rights Reserved.
+</p>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
