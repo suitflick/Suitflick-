@@ -1,0 +1,361 @@
+// =============================
+// SuitFlick v2 JavaScript
+// =============================
+
+console.log("SuitFlick v2 Loaded");
+
+// -----------------------------
+// Mobile Menu
+// -----------------------------
+
+function toggleMenu() {
+    document.getElementById("navbar").classList.toggle("show");
+}
+
+// -----------------------------
+// Search Products
+// -----------------------------
+
+function searchProducts() {
+
+    let input = document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase();
+
+    let products = document.querySelectorAll(".product-card");
+
+    products.forEach(function(product){
+
+        let title = product.querySelector("h3").innerText.toLowerCase();
+
+        if(title.includes(input)){
+            product.style.display="block";
+        }else{
+            product.style.display="none";
+        }
+
+    });
+
+}
+
+// -----------------------------
+// Add To Cart
+// -----------------------------
+
+function addToCart(name,price){
+
+let cart=JSON.parse(localStorage.getItem("cart"))||[];
+
+cart.push({
+name:name,
+price:price,
+quantity:1
+});
+
+localStorage.setItem("cart",JSON.stringify(cart));
+
+updateCartCount();
+
+alert(name+" added to cart 🛒");
+
+}
+
+// -----------------------------
+// Cart Count
+// -----------------------------
+
+function updateCartCount(){
+
+let cart=JSON.parse(localStorage.getItem("cart"))||[];
+
+let count=document.getElementById("cartCount");
+
+if(count){
+
+count.innerHTML=cart.length;
+
+}
+
+}
+// -----------------------------
+// Load Cart
+// -----------------------------
+
+function loadCart(){
+
+let cartItems=document.getElementById("cartItems");
+
+if(!cartItems) return;
+
+let totalPrice=document.getElementById("totalPrice");
+
+let cart=JSON.parse(localStorage.getItem("cart"))||[];
+
+cartItems.innerHTML="";
+
+let total=0;
+
+if(cart.length===0){
+
+cartItems.innerHTML="<h2>Your Cart is Empty 🛒</h2>";
+
+if(totalPrice){
+totalPrice.innerHTML="Total : ₹0";
+}
+
+return;
+
+}
+
+cart.forEach(function(item,index){
+
+total += item.price * item.quantity;
+
+cartItems.innerHTML += `
+
+<div class="product-card">
+
+<h3>${item.name}</h3>
+
+<p>₹${item.price}</p>
+
+<p>
+
+<button onclick="decreaseQty(${index})">-</button>
+
+${item.quantity}
+
+<button onclick="increaseQty(${index})">+</button>
+
+</p>
+
+<button onclick="removeItem(${index})">
+
+Remove
+
+</button>
+
+</div>
+
+`;
+
+});
+
+if(totalPrice){
+
+totalPrice.innerHTML="Total : ₹"+total;
+
+}
+
+}
+
+// -----------------------------
+// Increase Quantity
+// -----------------------------
+
+function increaseQty(index){
+
+let cart=JSON.parse(localStorage.getItem("cart"))||[];
+
+cart[index].quantity++;
+
+localStorage.setItem("cart",JSON.stringify(cart));
+
+loadCart();
+
+updateCartCount();
+
+}
+
+// -----------------------------
+// Decrease Quantity
+// -----------------------------
+
+function decreaseQty(index){
+
+let cart=JSON.parse(localStorage.getItem("cart"))||[];
+
+if(cart[index].quantity>1){
+
+cart[index].quantity--;
+
+}else{
+
+cart.splice(index,1);
+
+}
+
+localStorage.setItem("cart",JSON.stringify(cart));
+
+loadCart();
+
+updateCartCount();
+
+}
+
+// -----------------------------
+// Remove Item
+// -----------------------------
+
+function removeItem(index){
+
+let cart=JSON.parse(localStorage.getItem("cart"))||[];
+
+cart.splice(index,1);
+
+localStorage.setItem("cart",JSON.stringify(cart));
+
+loadCart();
+
+updateCartCount();
+
+}
+
+// -----------------------------
+// Clear Cart
+// -----------------------------
+
+function clearCart(){
+
+localStorage.removeItem("cart");
+
+loadCart();
+
+updateCartCount();
+
+}
+// -----------------------------
+// Wishlist
+// -----------------------------
+
+function addToWishlist(name, price){
+
+let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+wishlist.push({
+name:name,
+price:price
+});
+
+localStorage.setItem("wishlist", JSON.stringify(wishlist));
+
+alert(name + " added to Wishlist ❤️");
+
+}
+
+function loadWishlist(){
+
+let wishlistItems = document.getElementById("wishlistItems");
+
+if(!wishlistItems) return;
+
+let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+wishlistItems.innerHTML = "";
+
+if(wishlist.length===0){
+
+wishlistItems.innerHTML="<h2>Your Wishlist is Empty ❤️</h2>";
+
+return;
+
+}
+
+wishlist.forEach(function(item,index){
+
+wishlistItems.innerHTML += `
+
+<div class="product-card">
+
+<h3>${item.name}</h3>
+
+<p>₹${item.price}</p>
+
+<button onclick="moveToCart(${index})">
+Move To Cart
+</button>
+
+</div>
+
+`;
+
+});
+
+}
+
+function moveToCart(index){
+
+let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+cart.push({
+name:wishlist[index].name,
+price:wishlist[index].price,
+quantity:1
+});
+
+wishlist.splice(index,1);
+
+localStorage.setItem("wishlist",JSON.stringify(wishlist));
+
+localStorage.setItem("cart",JSON.stringify(cart));
+
+loadWishlist();
+
+updateCartCount();
+
+}
+
+// -----------------------------
+// Account
+// -----------------------------
+
+function signup(){
+
+alert("Signup feature will be connected with Firebase.");
+
+}
+
+function login(){
+
+alert("Login feature will be connected with Firebase.");
+
+}
+
+function logout(){
+
+alert("Logged Out Successfully.");
+
+}
+
+// -----------------------------
+// Checkout
+// -----------------------------
+
+function placeOrder(){
+
+alert("🎉 Order Placed Successfully!");
+
+localStorage.removeItem("cart");
+
+updateCartCount();
+
+window.location.href="index.html";
+
+}
+
+// -----------------------------
+// Auto Load
+// -----------------------------
+
+window.addEventListener("load",function(){
+
+updateCartCount();
+
+loadCart();
+
+loadWishlist();
+
+});
