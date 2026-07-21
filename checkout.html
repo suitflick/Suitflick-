@@ -20,9 +20,7 @@
 <a href="cart.html">
 Cart (<span id="cartCount">0</span>)
 </a>
-<a href="account.html">Account</a>
 <a href="contact.html">Contact</a>
-<a href="admin.html">Admin</a>
 </nav>
 
 </header>
@@ -30,6 +28,15 @@ Cart (<span id="cartCount">0</span>)
 <section class="checkout">
 
 <h2>Checkout</h2>
+<div class="security-box">
+<h3>🔒 Security Notice</h3>
+<p>
+Your order will be verified before dispatch.
+Please complete payment only after order confirmation.
+</p>
+</div>
+
+<br>
 
 <form>
 
@@ -60,15 +67,28 @@ Cart (<span id="cartCount">0</span>)
 
 <label>Payment Method</label><br>
 
-<select>
-<option>Cash on Delivery (COD)</option>
-<option>Online Payment (Coming Soon)</option>
+<label>Payment Mode</label><br>
+
+<select id="paymentMode">
+
+<option value="">Select Payment Mode</option>
+
+<option value="prepaid">
+Prepaid (Full Payment - Free Delivery)
+</option>
+
+<option value="cod">
+Cash on Delivery (₹200 Advance Required)
+</option>
+
 </select>
+
+<div id="paymentMessage"></div>
 
 <br><br>
 
 <button type="submit">
-Place Order
+Proceed to Payment 
 </button>
 
 </form>
