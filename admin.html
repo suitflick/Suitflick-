@@ -1,3 +1,16 @@
+import { auth } from "./firebase.js";
+import {
+onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js";
+
+const ADMIN_EMAIL = "YOUR_EMAIL@gmail.com"; // <-- apna Gmail likhna
+
+onAuthStateChanged(auth, (user) => {
+    if (!user || user.email !== ADMIN_EMAIL) {
+        alert("Access Denied");
+        window.location.href = "index.html";
+    }
+});
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +30,6 @@
 <a href="shop.html">Shop</a>
 <a href="wishlist.html">Wishlist</a>
 <a href="cart.html">Cart</a>
-<a href="account.html">Account</a>
 <a href="contact.html">Contact</a>
 </nav>
 </header>
