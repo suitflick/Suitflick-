@@ -37,23 +37,15 @@ try {
 
 await addDoc(collection(db, "orders"), {
 
-
-name: name,
-
-mobile: mobile,
-
-email: email,
-
-address: address,
-
-pincode: pincode,
-
+name,
+mobile,
+email,
+address,
+pincode,
 paymentMethod: payment,
-
 products: cart,
-
 totalPrice: total,
-
+orderStatus: "Pending",
 createdAt: serverTimestamp()
 
 });
