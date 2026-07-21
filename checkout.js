@@ -1,4 +1,4 @@
-import { db, auth } from "./firebase.js";
+import { db } from "./firebase.js";
 
 import {
 collection,
@@ -12,19 +12,12 @@ form.addEventListener("submit", async (e) => {
 
 e.preventDefault();
 
-const user = auth.currentUser;
-
-if (!user) {
-alert("Please Login First");
-window.location.href = "account.html";
-return;
-}
 
 const name = document.querySelector('input[type="text"]').value;
 
 const mobile = document.querySelector('input[type="tel"]').value;
 
-const email = document.querySelector('input[type="email"]').value || user.email;
+const email = document.querySelector('input[type="email"]').value;
 
 const address = document.querySelector("textarea").value;
 
@@ -44,7 +37,6 @@ try {
 
 await addDoc(collection(db, "orders"), {
 
-userEmail: user.email,
 
 name: name,
 
