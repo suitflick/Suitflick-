@@ -189,11 +189,35 @@ const name = document.getElementById("productName").value.trim();
 
 const price = Number(document.getElementById("productPrice").value);
 
-const image = document.getElementById("productImage").value.trim();
+const category = document.getElementById("productCategory").value;
+
+const brand = document.getElementById("productBrand").value.trim();
+
+const fabric = document.getElementById("productFabric").value.trim();
+
+const color = document.getElementById("productColor").value.trim();
+
+const stock = Number(document.getElementById("productStock").value);
+
+const image1 = document.getElementById("productImage1").value.trim();
+
+const image2 = document.getElementById("productImage2").value.trim();
+
+const image3 = document.getElementById("productImage3").value.trim();
+
+const image4 = document.getElementById("productImage4").value.trim();
+
+const image5 = document.getElementById("productImage5").value.trim();
+
+const sizes = document.getElementById("productSizes").value;
+
+const delivery = document.getElementById("delivery").value;
+
+const wash = document.getElementById("wash").value;
 
 const description = document.getElementById("productDescription").value.trim();
 
-if(!name || !price || !image){
+if(!name || !price || !image1){
 
 alert("Please fill all required fields.");
 
@@ -203,16 +227,30 @@ return;
 
 try{
 
-await addDoc(collection(db,"products"),{
-
+await addDoc(collection(db,"products"), {
 name,
-
 price,
+category,
+brand,
+fabric,
+color,
+stock,
 
-image,
+image:image1,
+
+images:[
+image1,
+image2,
+image3,
+image4,
+image5
+],
+
+sizes,
+delivery,
+wash,
 
 description
-
 });
 
 document.getElementById("message").innerHTML="✅ Product Added Successfully";
