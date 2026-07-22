@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Orders | SuitFlick Admin</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+
+SuitFlick Orders
+
+</div>
+
+<div class="menu-icon"
+onclick="toggleMenu()">
+
+☰
+
+</div>
+
+<nav id="navbar">
+
+<a href="admin.html">Dashboard</a>
+
+<a href="orders.html">Orders</a>
+
+<a href="shop.html">Shop</a>
+
+<a href="index.html">Website</a>
+
+</nav>
+
+</header>
+
+<section class="admin">
+
+<h2>Customer Orders</h2>
+
+<div id="ordersContainer">
+
+Loading Orders...
+
+</div>
+
+<h2>Order Summary</h2>
+
+<div class="summary">
+
+<div class="summary-card">
+
+<h3>Total Orders</h3>
+
+<p id="totalOrders">0</p>
+
+</div>
+
+<div class="summary-card">
+
+<h3>Total Revenue</h3>
+
+<p id="totalRevenue">₹0</p>
+
+</div>
+
+<div class="summary-card">
+
+<h3>Pending Orders</h3>
+
+<p id="pendingOrders">0</p>
+
+</div>
+
+<div class="summary-card">
+
+<h3>Delivered Orders</h3>
+
+<p id="deliveredOrders">0</p>
+
+</div>
+
+</div>
+
+<br>
+
+<button onclick="location.href='admin.html'">
+
+⬅ Back To Dashboard
+
+</button>
+
+</section>
+
+<footer class="footer">
+
+<p>
+
+© 2026 SuitFlick
+
+</p>
+
+</footer>
+
+<script src="script.js"></script>
+
+<script type="module" src="orders.js"></script>
+
+</body>
+
+</html>
