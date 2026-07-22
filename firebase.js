@@ -1,22 +1,55 @@
+// ==========================
+// SuitFlick Firebase Config
+// ==========================
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
 
 import { getFirestore } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
 import { getAuth } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js";
 
+import { getStorage } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-storage.js";
+
+// ==========================
+// Firebase Configuration
+// Replace with your own config
+// ==========================
+
 const firebaseConfig = {
-  apiKey: "AIzaSyAH8-NGz37uSYPuEMYtHXGR2ex5zNEit9k",
-  authDomain: "suitflick-4cc66.firebaseapp.com",
-  projectId: "suitflick-4cc66",
-  storageBucket: "suitflick-4cc66.firebasestorage.app",
-  messagingSenderId: "1078879146593",
-  appId: "1:1078879146593:web:f96e6531befaa715dc5020"
+
+apiKey: "YOUR_API_KEY",
+
+authDomain: "YOUR_PROJECT.firebaseapp.com",
+
+projectId: "YOUR_PROJECT_ID",
+
+storageBucket: "YOUR_PROJECT.appspot.com",
+
+messagingSenderId: "YOUR_SENDER_ID",
+
+appId: "YOUR_APP_ID"
+
 };
 
+// ==========================
+// Initialize Firebase
+// ==========================
+
 const app = initializeApp(firebaseConfig);
+
+// ==========================
+// Services
+// ==========================
 
 const db = getFirestore(app);
 
 const auth = getAuth(app);
 
-export { db, auth };
+const storage = getStorage(app);
+
+// ==========================
+// Export
+// ==========================
+
+export { app, db, auth, storage };
+
