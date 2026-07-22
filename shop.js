@@ -270,3 +270,149 @@ window.newArrival=newArrival;
 window.saleProducts=saleProducts;
 
 window.availableProducts=availableProducts;
+
+// ==========================
+// SuitFlick Final Shop.js
+// Part 3
+// ==========================
+
+// ==========================
+// Color Filter
+// ==========================
+
+function filterColor(color){
+
+if(color==="All"){
+
+displayProducts(allProducts);
+
+return;
+
+}
+
+const filtered=allProducts.filter(product=>{
+
+return (product.color || "").toLowerCase()===color.toLowerCase();
+
+});
+
+displayProducts(filtered);
+
+}
+
+// ==========================
+// Open Product Details
+// ==========================
+
+function openProduct(productId){
+
+const product=allProducts.find(item=>item.id===productId);
+
+if(!product) return;
+
+localStorage.setItem("selectedProduct",JSON.stringify(product));
+
+window.location.href="product.html";
+
+}
+
+// ==========================
+// Product Badges
+// ==========================
+
+function getBadge(product){
+
+if(product.stock===0){
+
+return `<span class="badge out-stock">Out Of Stock</span>`;
+
+}
+
+if(product.sale){
+
+return `<span class="badge sale">SALE</span>`;
+
+}
+
+if(product.bestSeller){
+
+return `<span class="badge bestseller">BEST SELLER</span>`;
+
+}
+
+if(product.newArrival){
+
+return `<span class="badge new">NEW</span>`;
+
+}
+
+return "";
+
+}
+
+// ==========================
+// Refresh Product Cards
+// ==========================
+
+const oldDisplayProducts=displayProducts;
+
+displayProducts=function(products){
+
+productsContainer.innerHTML="";
+
+if(products.length===0){
+
+productsContainer.innerHTML="<h2>No Products Found</h2>";
+
+return;
+
+}
+
+products.forEach(product=>{
+
+productsContainer.innerHTML+=`
+
+<div class="product-card">
+
+${getBadge(product)}
+
+<img
+src="${product.image1}"
+alt="${product.name}"
+onclick="openProduct('${product.id}')">
+
+<h3>${product.name}</h3>
+
+<p>₹${product.price}</p>
+
+<p><strong>Color:</strong> ${product.color || "-"}</p>
+
+<button
+onclick="addToWishlist('${product.name}',${product.price},'${product.image1}')">
+
+♡ Wishlist
+
+</button>
+
+<button
+${product.stock===0 ? "disabled" : ""}
+onclick="addToCart('${product.name}',${product.price},'${product.image1}')">
+
+${product.stock===0 ? "Out Of Stock" : "Add To Cart"}
+
+</button>
+
+</div>
+
+`;
+
+});
+
+};
+
+// ==========================
+// Global Functions
+// ==========================
+
+window.filterColor=filterColor;
+window.openProduct=openProduct;
