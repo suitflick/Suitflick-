@@ -115,3 +115,158 @@ Add To Cart
 // ==========================
 
 loadProducts();
+
+// ==========================
+// SuitFlick Final Shop.js
+// Part 2
+// ==========================
+
+// ==========================
+// Search Products
+// ==========================
+
+function searchProducts(){
+
+const input=document.getElementById("searchInput");
+
+if(!input) return;
+
+const keyword=input.value.toLowerCase();
+
+const filtered=allProducts.filter(product=>{
+
+return(
+
+product.name.toLowerCase().includes(keyword) ||
+
+(product.category||"").toLowerCase().includes(keyword)
+
+);
+
+});
+
+displayProducts(filtered);
+
+}
+
+// ==========================
+// Category Filter
+// ==========================
+
+function filterCategory(category){
+
+if(category==="All"){
+
+displayProducts(allProducts);
+
+return;
+
+}
+
+const filtered=allProducts.filter(product=>{
+
+return product.category===category;
+
+});
+
+displayProducts(filtered);
+
+}
+
+// ==========================
+// Price Filter
+// ==========================
+
+function filterPrice(maxPrice){
+
+const filtered=allProducts.filter(product=>{
+
+return Number(product.price)<=Number(maxPrice);
+
+});
+
+displayProducts(filtered);
+
+}
+
+// ==========================
+// Best Seller Filter
+// ==========================
+
+function bestSeller(){
+
+const filtered=allProducts.filter(product=>{
+
+return product.bestSeller===true;
+
+});
+
+displayProducts(filtered);
+
+}
+
+// ==========================
+// New Arrival Filter
+// ==========================
+
+function newArrival(){
+
+const filtered=allProducts.filter(product=>{
+
+return product.newArrival===true;
+
+});
+
+displayProducts(filtered);
+
+}
+
+// ==========================
+// Sale Products
+// ==========================
+
+function saleProducts(){
+
+const filtered=allProducts.filter(product=>{
+
+return product.sale===true;
+
+});
+
+displayProducts(filtered);
+
+}
+
+// ==========================
+// Stock Filter
+// ==========================
+
+function availableProducts(){
+
+const filtered=allProducts.filter(product=>{
+
+return product.stock>0;
+
+});
+
+displayProducts(filtered);
+
+}
+
+// ==========================
+// Global Functions
+// ==========================
+
+window.searchProducts=searchProducts;
+
+window.filterCategory=filterCategory;
+
+window.filterPrice=filterPrice;
+
+window.bestSeller=bestSeller;
+
+window.newArrival=newArrival;
+
+window.saleProducts=saleProducts;
+
+window.availableProducts=availableProducts;
