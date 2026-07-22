@@ -1,3 +1,8 @@
+// ==========================
+// SuitFlick Final Shop.js
+// Part 1
+// ==========================
+
 import { db } from "./firebase.js";
 
 import {
@@ -5,54 +10,96 @@ collection,
 getDocs
 } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
-async function loadProducts() {
-
 const productsContainer = document.querySelector(".product-grid");
 
-productsContainer.innerHTML = "";
+let allProducts = [];
 
-try {
+// ==========================
+// Load Products
+// ==========================
 
-const querySnapshot = await getDocs(collection(db,"products"));
+async function loadProducts(){
 
-if(querySnapshot.empty){
+if(!productsContainer) return;
 
-productsContainer.innerHTML=`
-<h2 style="text-align:center;">
-No Products Available
-</h2>
-`;
+productsContainer.innerHTML="<h2>Loading Products...</h2>";
+
+try{
+
+const querySnapshot=await getDocs(collection(db,"products"));
+
+allProducts=[];
+
+querySnapshot.forEach(doc=>{
+
+allProducts.push({
+id:doc.id,
+...doc.data()
+});
+
+});
+
+displayProducts(allProducts);
+
+}catch(error){
+
+console.error(error);
+
+productsContainer.innerHTML="<h2>❌ Failed to Load Products</h2>";
+
+}
+
+}
+
+// ==========================
+// Display Products
+// ==========================
+
+function displayProducts(products){
+
+productsContainer.innerHTML="";
+
+if(products.length===0){
+
+productsContainer.innerHTML="<h2>No Products Found</h2>";
 
 return;
 
 }
 
-querySnapshot.forEach((doc)=>{
+products.forEach(product=>{
 
-const product=doc.data();
-
-productsContainer.innerHTML += `
+productsContainer.innerHTML+=`
 
 <div class="product-card">
 
-<img src="${product.image}" alt="${product.name}">
+<div class="badge">
+${product.badge || "NEW"}
+</div>
+
+<img
+src="${product.image1}"
+alt="${product.name}"
+onclick="openProduct('${product.id}')">
 
 <h3>${product.name}</h3>
 
 <p>₹${product.price}</p>
 
-<p>${product.description || ""}</p>
-
-<button onclick="addToWishlist('${product.name}',${product.price})">
+<button onclick="addToWishlist(
+'${product.name}',
+${product.price},
+'${product.image1}'
+)">
 ♡ Wishlist
 </button>
 
-<button onclick="addToCart('${product.name}',${product.price})">
+<button onclick="addToCart(
+'${product.name}',
+${product.price},
+'${product.image1}'
+)">
 Add To Cart
-</button>
-
-<button onclick="location.href='product.html?id=${doc.id}'">
-View Details
 </button>
 
 </div>
@@ -61,18 +108,10 @@ View Details
 
 });
 
-}catch(error){
-
-console.error(error);
-
-productsContainer.innerHTML=`
-<h2 style="text-align:center;color:red;">
-Unable to load products.
-</h2>
-`;
-
 }
 
-}
+// ==========================
+// Initial Load
+// ==========================
 
 loadProducts();
