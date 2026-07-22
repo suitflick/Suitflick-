@@ -1,62 +1,77 @@
 import { db } from "./firebase.js";
 
 import {
-  collection,
-  getDocs
+collection,
+getDocs
 } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
 async function loadProducts() {
 
-  const productsContainer = document.querySelector(".product-grid");
+const productsContainer = document.querySelector(".product-grid");
 
-  productsContainer.innerHTML = "";
+productsContainer.innerHTML = "";
 
-  try {
+try {
 
-    const querySnapshot = await getDocs(collection(db, "products"));
+const querySnapshot = await getDocs(collection(db,"products"));
 
-    querySnapshot.forEach((doc) => {
+if(querySnapshot.empty){
 
-      const product = doc.data();
+productsContainer.innerHTML=`
+<h2 style="text-align:center;">
+No Products Available
+</h2>
+`;
 
-      productsContainer.innerHTML += `
+return;
 
-      <div class="product-card">
+}
 
-        <img src="${product.image}" alt="${product.name}">
+querySnapshot.forEach((doc)=>{
 
-        <h3>${product.name}</h3>
+const product=doc.data();
 
-        <p>₹${product.price}</p>
+productsContainer.innerHTML += `
 
-        <button onclick="addToWishlist('${product.name}', ${product.price})">
-          ♡ Wishlist
-        </button>
+<div class="product-card">
 
-        <button onclick="addToCart('${product.name}', ${product.price})">
-          Add To Cart
-        </button>
+<img src="${product.image}" alt="${product.name}">
 
+<h3>${product.name}</h3>
 
+<p>₹${product.price}</p>
 
-      </div>
+<p>${product.description || ""}</p>
 
-      `;
+<button onclick="addToWishlist('${product.name}',${product.price})">
+♡ Wishlist
+</button>
 
-    });
+<button onclick="addToCart('${product.name}',${product.price})">
+Add To Cart
+</button>
 
-    if (querySnapshot.empty) {
-      productsContainer.innerHTML = "<h3>No Products Available</h3>";
-    }
+<button onclick="location.href='product.html?id=${doc.id}'">
+View Details
+</button>
 
-  } catch (error) {
+</div>
 
-    console.error(error);
+`;
 
-    productsContainer.innerHTML =
-      "<h3>❌ Error Loading Products</h3>";
+});
 
-  }
+}catch(error){
+
+console.error(error);
+
+productsContainer.innerHTML=`
+<h2 style="text-align:center;color:red;">
+Unable to load products.
+</h2>
+`;
+
+}
 
 }
 
