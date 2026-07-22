@@ -26,6 +26,32 @@ const pincode = document.querySelector('input[type="number"]').value;
 const payment = document.querySelector("select").value;
 
 const cart = JSON.parse(localStorage.getItem("cart")) || [];
+const paymentMode = document.getElementById("paymentMode");
+const paymentMessage = document.getElementById("paymentMessage");
+
+paymentMode.addEventListener("change", () => {
+
+if (paymentMode.value === "cod") {
+
+paymentMessage.innerHTML =
+"🚚 Cash on Delivery selected.<br><b>₹200 advance payment is required to confirm your COD order.</b>";
+
+}
+
+else if (paymentMode.value === "prepaid") {
+
+paymentMessage.innerHTML =
+"💳 Full Online Payment selected.<br><b>You will get faster order processing.</b>";
+
+}
+
+else{
+
+paymentMessage.innerHTML="";
+
+}
+
+});
 
 let total = 0;
 
@@ -54,7 +80,7 @@ alert("🎉 Order Placed Successfully!");
 
 localStorage.removeItem("cart");
 
-window.location.href = "index.html";
+window.location.href="success.html";
 
 } catch (error) {
 
