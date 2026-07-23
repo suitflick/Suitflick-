@@ -6,7 +6,6 @@
 <title>Shop | SuitFlick</title>
 <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <header>
@@ -16,9 +15,7 @@
 <a href="index.html">Home</a>
 <a href="shop.html">Shop</a>
 <a href="wishlist.html">Wishlist</a>
-<a href="cart.html">
-Cart (<span id="cartCount">0</span>)
-</a>
+<a href="cart.html">Cart (<span id="cartCount">0</span>)</a>
 <a href="contact.html">Contact</a>
 </nav>
 </header>
@@ -37,63 +34,43 @@ onkeyup="searchProducts()">
 <div class="product-grid">
 
 <div class="product-card">
-<img src="https://via.placeholder.com/300x400?text=Floral+Suit" alt="Floral Cotton Suit">
-<h3>Floral Cotton Suit</h3>
-<p>₹999</p>
-<button onclick="addToWishlist('Floral Cotton Suit',999)">
+<img src="images/IMG-20260723-WA0032.jpg" alt="Rose Pink Embroidered Anarkali Suit">
+
+<h3>Rose Pink Embroidered Anarkali Suit</h3>
+
+<p class="price">₹1849</p>
+
+<p>
+Fabric: Premium Viscose Silk Blend<br>
+Color: Rose Pink<br>
+Work: Embroidery<br>
+Occasion: Festive | Party | Wedding
+</p>
+
+<button onclick="addToWishlist('Rose Pink Embroidered Anarkali Suit',1849)">
 ♡ Wishlist
 </button>
-<button onclick="addToCart('Floral Cotton Suit',999)">Add to Cart</button>
+
+<button onclick="addToCart('Rose Pink Embroidered Anarkali Suit',1849)">
+Add to Cart
+</button>
+
 <button onclick="window.location.href='product.html?id=1'">
 View Details
 </button>
-</div>
 
-<div class="product-card">
-<img src="https://via.placeholder.com/300x400?text=Party+Suit" alt="Party Wear Suit">
-<h3>Party Wear Suit</h3>
-<p>₹1499</p>
-<button onclick="addToWishlist('Party Wear Suit',1499)">
-♡ Wishlist
-</button>
-<button onclick="addToCart('Party Wear Suit',1499)">Add to Cart</button>
-<button onclick="window.location.href='product.html?id=2'">
-View Details
-</button>
-</div>
-
-<div class="product-card">
-<img src="https://via.placeholder.com/300x400?text=Anarkali+Suit" alt="Anarkali Suit">
-<h3>Anarkali Suit</h3>
-<p>₹1999</p>
-<button onclick="addToWishlist('Anarkali Suit',1999)">
-♡ Wishlist
-</button>
-<button onclick="addToCart('Anarkali Suit',1999)">Add to Cart</button>
-<button onclick="window.location.href='product.html?id=3'">
-View Details
-</button>
 </div>
 
 </div>
 
 </section>
 
-<script src="script.js"></script>
-<script type="module" src="shop.js"></script>
-
-...
-<!-- Professional Footer yahan paste hoga -->
-
 <footer class="footer">
-
-...
-
+<p>© 2026 SuitFlick. All Rights Reserved.</p>
 </footer>
 
 <script src="script.js"></script>
-
-<script src="slider.js"></script>
+<script type="module" src="shop.js"></script>
 
 </body>
 </html>
