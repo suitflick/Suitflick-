@@ -1,55 +1,73 @@
-import { auth } from "./firebase.js";
+// ==========================
+// SuitFlick Final Account.js
+// Part 1
+// ==========================
 
 import {
-createUserWithEmailAndPassword,
+getAuth,
 signInWithEmailAndPassword,
+onAuthStateChanged,
 signOut
 } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js";
 
-window.signup = async function(){
+import { app } from "./firebase.js";
 
-const email = document.getElementById("email").value;
-const password = document.getElementById("password").value;
+const auth=getAuth(app);
 
-try{
+const loginForm=document.getElementById("adminLoginForm");
 
-await createUserWithEmailAndPassword(auth,email,password);
+if(loginForm){
 
-alert("✅ Account Created Successfully");
-
-}catch(error){
-
-alert(error.message);
+loginForm.addEventListener("submit",loginAdmin);
 
 }
 
-}
+// ==========================
+// Admin Login
+// ==========================
 
-window.login = async function(){
+async function loginAdmin(e){
 
-const email = document.getElementById("email").value;
-const password = document.getElementById("password").value;
+e.preventDefault();
+
+const email=document.getElementById("adminEmail").value.trim();
+
+const password=document.getElementById("adminPassword").value;
 
 try{
 
 await signInWithEmailAndPassword(auth,email,password);
 
-alert("✅ Login Successful");
+localStorage.setItem("adminLoggedIn","true");
 
-window.location.href="index.html";
+showToast("✅ Login Successful");
+
+setTimeout(()=>{
+
+window.location.href="admin.html";
+
+},1000);
 
 }catch(error){
 
-alert(error.message);
+console.error(error);
+
+showToast("❌ Invalid Email or Password");
 
 }
 
 }
 
-window.logout = async function(){
+// ==========================
+// Check Login
+// ==========================
 
-await signOut(auth);
+onAuthStateChanged(auth,(user)=>{
 
-alert("Logged Out");
+if(user){
+
+localStorage.setItem("adminLoggedIn","true");
 
 }
+
+});
