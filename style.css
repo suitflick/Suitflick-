@@ -56,11 +56,10 @@ backdrop-filter:blur(10px);
 box-shadow:0 2px 15px rgba(0,0,0,.08);
 }
 
-.logo{
-font-size:30px;
-font-weight:700;
-color:#ff3f6c;
-letter-spacing:1px;
+.logo img{
+    width:120px;
+    height:auto;
+    object-fit:contain;
 }
 
 nav{
