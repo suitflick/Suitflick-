@@ -10,207 +10,78 @@
 <body>
 
 <header>
-
 <div class="logo">SuitFlick</div>
 
-<div class="menu-icon" onclick="toggleMenu()">☰</div>
-
-<nav id="navbar">
+<nav>
 <a href="index.html">Home</a>
 <a href="shop.html">Shop</a>
-<a href="wishlist.html">Wishlist</a>
-<a href="cart.html">
-Cart (<span id="cartCount">0</span>)
-</a>
+<a href="cart.html">Cart</a>
 <a href="contact.html">Contact</a>
 </nav>
-
 </header>
 
 <section class="product-details">
 
-<div class="product-image">
-<img id="productImage" src="" alt="Product">
-<div id="gallery" class="gallery"></div>
+<div class="product-images">
+
+<img id="mainImage"
+src="images/IMG-20260723-WA0032.jpg"
+alt="Rose Pink Embroidered Anarkali Suit"
+style="width:100%;max-width:450px;border-radius:10px;">
+
+<div style="display:flex;gap:10px;margin-top:15px;flex-wrap:wrap;">
+
+<img src="images/IMG-20260723-WA0032.jpg"
+width="80"
+onclick="changeImage(this.src)"
+style="cursor:pointer;border-radius:8px;">
+
+<img src="images/IMG-20260723-WA0033.jpg"
+width="80"
+onclick="changeImage(this.src)"
+style="cursor:pointer;border-radius:8px;">
+
+<img src="images/IMG-20260723-WA0034.jpg"
+width="80"
+onclick="changeImage(this.src)"
+style="cursor:pointer;border-radius:8px;">
+
+<img src="images/IMG-20260723-WA0036.jpg"
+width="80"
+onclick="changeImage(this.src)"
+style="cursor:pointer;border-radius:8px;">
+
+</div>
+
 </div>
 
 <div class="product-info">
 
-<p><b>Color:</b> <span id="productColor"></span></p>
+<h1>Rose Pink Embroidered Anarkali Suit</h1>
 
-<p><b>Fabric:</b> <span id="productFabric"></span></p>
+<h2>₹1849</h2>
 
-<p><b>Sleeve:</b> <span id="productSleeve"></span></p>
+<p><strong>Fabric:</strong> Premium Viscose Silk Blend</p>
 
-<p><b>Neck:</b> <span id="productNeck"></span></p>
+<p><strong>Color:</strong> Rose Pink</p>
 
-<p id="productStock"></p>
+<p><strong>Work:</strong> Embroidery</p>
 
-<h2 id="productName">Loading...</h2>
+<p><strong>Occasion:</strong> Festive | Party | Wedding</p>
 
-<h3 id="productPrice"></h3>
+<p>
+Graceful embroidered Anarkali suit with matching dupatta.
+Soft fabric, premium stitching and elegant design for
+festivals, parties and weddings.
+</p>
 
-<p id="productDescription"></p>
-
-<p>⭐⭐⭐⭐☆ (4.5/5)</p>
-
-<h4>Select Size</h4>
-
-<h4>Select Size</h4>
-
-<select id="size" required>
-<option value="">Choose Size</option>
-<option>XS</option>
-<option>S</option>
-<option>M</option>
-<option>L</option>
-<option>XL</option>
-<option>XXL</option>
-</select>
-
-<br><br>
-
-<h4>Quantity</h4>
-
-<input
-type="number"
-id="qty"
-value="1"
-min="1"
-max="10">
-
-<br><br>
-<h4>Product Details</h4>
-
-<p><b>Fabric:</b> Premium Cotton Blend</p>
-
-<p><b>Fit:</b> Regular Fit</p>
-
-<p><b>Sleeves:</b> 3/4 Sleeves</p>
-
-<p><b>Occasion:</b> Casual | Party | Festive</p>
-
-<p><b>Country of Origin:</b> India</p>
-
-<p><b>Estimated Delivery:</b> 3–7 Business Days</p>
-
-<p><b>Wash Care:</b> Gentle Machine Wash / Hand Wash</p>
-
-<button id="cartBtn">
-Add To Cart
+<button onclick="addToCart('Rose Pink Embroidered Anarkali Suit',1849)">
+Add to Cart
 </button>
 
 <button onclick="location.href='checkout.html'">
 Buy Now
 </button>
-<button id="buyBtn">Buy Now</button>
-
-<hr><br>
-
-<h3>📏 Size Guide</h3>
-
-<table border="1" cellpadding="10" cellspacing="0" style="width:100%;border-collapse:collapse;text-align:center;">
-
-<tr style="background:#ff4081;color:white;">
-<th>Size</th>
-<th>Bust</th>
-<th>Waist</th>
-<th>Hip</th>
-</tr>
-
-<tr>
-<td>XS</td>
-<td>81 cm / 32 in</td>
-<td>66 cm / 26 in</td>
-<td>86 cm / 34 in</td>
-</tr>
-
-<tr>
-<td>S</td>
-<td>86 cm / 34 in</td>
-<td>71 cm / 28 in</td>
-<td>91 cm / 36 in</td>
-</tr>
-
-<tr>
-<td>M</td>
-<td>91 cm / 36 in</td>
-<td>76 cm / 30 in</td>
-<td>97 cm / 38 in</td>
-</tr>
-
-<tr>
-<td>L</td>
-<td>97 cm / 38 in</td>
-<td>81 cm / 32 in</td>
-<td>102 cm / 40 in</td>
-</tr>
-
-<tr>
-<td>XL</td>
-<td>102 cm / 40 in</td>
-<td>86 cm / 34 in</td>
-<td>107 cm / 42 in</td>
-</tr>
-
-<tr>
-<td>XXL</td>
-<td>107 cm / 42 in</td>
-<td>91 cm / 36 in</td>
-<td>112 cm / 44 in</td>
-</tr>
-
-</table>
-
-<br>
-
-<div class="security-box">
-
-<h3>📌 Size Advice</h3>
-
-<p>
-All measurements are approximate. If your measurements fall between two sizes, we recommend choosing the larger size for a more comfortable fit.
-</p>
-
-</div>
-
-<hr><br>
-
-<h3>Size Guide (CM)</h3>
-
-<table border="1" cellpadding="8" cellspacing="0" style="width:100%;text-align:center;">
-
-<tr>
-
-<th>Size</th>
-
-<th>Bust</th>
-
-<th>Waist</th>
-
-<th>Hip</th>
-
-</tr>
-
-<tr><td>XS</td><td>81</td><td>66</td><td>86</td></tr>
-
-<tr><td>S</td><td>86</td><td>71</td><td>91</td></tr>
-
-<tr><td>M</td><td>91</td><td>76</td><td>97</td></tr>
-
-<tr><td>L</td><td>97</td><td>81</td><td>102</td></tr>
-
-<tr><td>XL</td><td>102</td><td>86</td><td>107</td></tr>
-
-<tr><td>XXL</td><td>107</td><td>91</td><td>112</td></tr>
-
-</table>
-
-<br>
-
-<p style="font-size:14px;color:#666;">
-📏 All measurements are in centimeters. If your measurements fall between two sizes, choose the larger size for a more comfortable fit.
-</p>
 
 </div>
 
@@ -218,37 +89,11 @@ All measurements are approximate. If your measurements fall between two sizes, w
 
 <script src="script.js"></script>
 
-<script type="module" src="product.js"></script>
-
-...
-<!-- Professional Footer yahan paste hoga -->
-
-<footer class="footer">
-
-...
-
-</footer>
-
-<script src="script.js"></script>
-
-<script src="slider.js"></script>
-
-<button onclick="addCurrentToWishlist()">
-❤️ Add To Wishlist
-</button>
-
-<p>
-<b>Estimated Delivery:</b>
-<span id="deliveryDate"></span>
-</p>
-
-<p id="rating"></p>
-
-<div id="sizeChart" class="size-chart"></div>
-
-<h3>Related Products</h3>
-
-<div id="relatedProducts" class="product-grid"></div>
+<script>
+function changeImage(src){
+document.getElementById("mainImage").src = src;
+}
+</script>
 
 </body>
 </html>
