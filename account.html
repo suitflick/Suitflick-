@@ -3,23 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Account | SuitFlick</title>
-<link rel="stylesheet" href="style.css">
-</head>
+<title>Admin Login | SuitFlick</title>
 
+<link rel="stylesheet" href="style.css">
+
+</head>
 <body>
 
 <header>
 
-<div class="logo">SuitFlick</div>
+<div class="logo">
+SuitFlick Admin
+</div>
 
 <nav>
 <a href="index.html">Home</a>
 <a href="shop.html">Shop</a>
-<a href="wishlist.html">Wishlist</a>
-<a href="cart.html">
-Cart (<span id="cartCount">0</span>)
-</a>
 <a href="contact.html">Contact</a>
 </nav>
 
@@ -27,40 +26,47 @@ Cart (<span id="cartCount">0</span>)
 
 <section class="account">
 
-<h2>My Account</h2>
+<h2>Admin Login</h2>
 
-<input
-type="text"
-id="name"
-placeholder="Full Name">
+<div id="loginBox">
 
-<br><br>
+<form id="adminLoginForm">
 
 <input
 type="email"
-id="email"
-placeholder="Email Address">
+id="adminEmail"
+placeholder="Admin Email"
+required>
 
 <br><br>
 
 <input
 type="password"
-id="password"
-placeholder="Password">
+id="adminPassword"
+placeholder="Password"
+required>
 
 <br><br>
 
-<button onclick="signup()">
-Sign Up
+<button type="submit">
+🔐 Login
 </button>
 
-<button onclick="login()">
-Login
+</form>
+
+<br>
+
+<button id="forgotPasswordBtn">
+Forgot Password
 </button>
 
-<button onclick="logout()">
+<br><br>
+
+<button id="logoutBtn">
 Logout
 </button>
+
+</div>
 
 </section>
 
