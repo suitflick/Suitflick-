@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Product Details | SuitFlick</title>
+<title>Rose Pink Embroidered Anarkali Suit | SuitFlick</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -15,6 +15,7 @@
 <nav>
 <a href="index.html">Home</a>
 <a href="shop.html">Shop</a>
+<a href="wishlist.html">Wishlist</a>
 <a href="cart.html">Cart</a>
 <a href="contact.html">Contact</a>
 </nav>
@@ -22,34 +23,33 @@
 
 <section class="product-details">
 
-<div class="product-images">
+<div class="product-gallery">
+
+<div class="thumbnail-images">
+
+<img src="images/IMG-20260723-WA0032.jpg"
+onclick="changeImage(this.src)"
+class="thumb">
+
+<img src="images/IMG-20260723-WA0033.jpg"
+onclick="changeImage(this.src)"
+class="thumb">
+
+<img src="images/IMG-20260723-WA0034.jpg"
+onclick="changeImage(this.src)"
+class="thumb">
+
+<img src="images/IMG-20260723-WA0036.jpg"
+onclick="changeImage(this.src)"
+class="thumb">
+
+</div>
+
+<div class="main-image">
 
 <img id="mainImage"
 src="images/IMG-20260723-WA0032.jpg"
-alt="Rose Pink Embroidered Anarkali Suit"
-style="width:100%;max-width:450px;border-radius:10px;">
-
-<div style="display:flex;gap:10px;margin-top:15px;flex-wrap:wrap;">
-
-<img src="images/IMG-20260723-WA0032.jpg"
-width="80"
-onclick="changeImage(this.src)"
-style="cursor:pointer;border-radius:8px;">
-
-<img src="images/IMG-20260723-WA0033.jpg"
-width="80"
-onclick="changeImage(this.src)"
-style="cursor:pointer;border-radius:8px;">
-
-<img src="images/IMG-20260723-WA0034.jpg"
-width="80"
-onclick="changeImage(this.src)"
-style="cursor:pointer;border-radius:8px;">
-
-<img src="images/IMG-20260723-WA0036.jpg"
-width="80"
-onclick="changeImage(this.src)"
-style="cursor:pointer;border-radius:8px;">
+alt="Rose Pink Embroidered Anarkali Suit">
 
 </div>
 
@@ -59,33 +59,79 @@ style="cursor:pointer;border-radius:8px;">
 
 <h1>Rose Pink Embroidered Anarkali Suit</h1>
 
-<h2>₹1849</h2>
+<p class="rating">
+⭐⭐⭐⭐⭐ <strong>4.8</strong> (124 Reviews)
+</p>
+
+<h2 class="price">
+₹1849
+<span style="text-decoration:line-through;color:gray;font-size:18px;">
+₹2499
+</span>
+
+<span style="color:green;font-size:18px;">
+26% OFF
+</span>
+</h2>
 
 <p><strong>Fabric:</strong> Premium Viscose Silk Blend</p>
 
 <p><strong>Color:</strong> Rose Pink</p>
 
-<p><strong>Work:</strong> Embroidery</p>
+<p><strong>Work:</strong> Heavy Embroidery</p>
 
-<p><strong>Occasion:</strong> Festive | Party | Wedding</p>
+<p><strong>Category:</strong> Women's Anarkali Suit</p>
+
+<h3>Select Size</h3>
+
+<div class="sizes">
+<button>S</button>
+<button>M</button>
+<button>L</button>
+<button>XL</button>
+<button>XXL</button>
+</div>
+
+<h3>Product Description</h3>
 
 <p>
-Graceful embroidered Anarkali suit with matching dupatta.
-Soft fabric, premium stitching and elegant design for
-festivals, parties and weddings.
+Premium Rose Pink Embroidered Anarkali Suit with matching
+dupatta. Designed for weddings, festivals and party wear.
+Soft fabric, elegant embroidery and comfortable fit make
+it a perfect choice for every occasion.
 </p>
 
+<hr>
+
+<p>✅ Free Delivery Available</p>
+
+<p>💳 Cash on Delivery Available</p>
+
+<p>🔄 7 Days Easy Return</p>
+
+<p>🚚 Dispatch within 24 Hours</p>
+
+<hr>
+
+<button onclick="addToWishlist('Rose Pink Embroidered Anarkali Suit',1849)">
+♡ Add to Wishlist
+</button>
+
 <button onclick="addToCart('Rose Pink Embroidered Anarkali Suit',1849)">
-Add to Cart
+🛒 Add to Cart
 </button>
 
 <button onclick="location.href='checkout.html'">
-Buy Now
+⚡ Buy Now
 </button>
 
 </div>
 
 </section>
+
+<footer class="footer">
+<p>© 2026 SuitFlick. All Rights Reserved.</p>
+</footer>
 
 <script src="script.js"></script>
 
@@ -94,6 +140,129 @@ function changeImage(src){
 document.getElementById("mainImage").src = src;
 }
 </script>
+
+<style>
+
+.product-details{
+display:flex;
+flex-wrap:wrap;
+gap:40px;
+padding:30px;
+justify-content:center;
+align-items:flex-start;
+}
+
+.product-gallery{
+display:flex;
+gap:15px;
+}
+
+.thumbnail-images{
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+.thumb{
+width:70px;
+height:90px;
+object-fit:cover;
+border:2px solid #ddd;
+border-radius:8px;
+cursor:pointer;
+transition:.3s;
+}
+
+.thumb:hover{
+border-color:#e91e63;
+transform:scale(1.05);
+}
+
+.main-image img{
+width:380px;
+max-width:100%;
+border-radius:12px;
+box-shadow:0 5px 20px rgba(0,0,0,.15);
+}
+
+.product-info{
+max-width:450px;
+}
+
+.price{
+font-size:30px;
+color:#e91e63;
+margin:10px 0;
+}
+
+.rating{
+color:#ff9800;
+font-size:18px;
+margin-bottom:15px;
+}
+
+.sizes{
+display:flex;
+gap:10px;
+margin:15px 0;
+flex-wrap:wrap;
+}
+
+.sizes button{
+padding:10px 18px;
+border:1px solid #ccc;
+background:#fff;
+border-radius:8px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.sizes button:hover{
+background:#e91e63;
+color:#fff;
+}
+
+.product-info button{
+width:100%;
+padding:14px;
+margin-top:10px;
+border:none;
+border-radius:8px;
+background:#e91e63;
+color:#fff;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.product-info button:hover{
+background:#c2185b;
+}
+
+@media(max-width:768px){
+
+.product-details{
+flex-direction:column;
+padding:15px;
+}
+
+.product-gallery{
+flex-direction:column-reverse;
+align-items:center;
+}
+
+.thumbnail-images{
+flex-direction:row;
+justify-content:center;
+}
+
+.main-image img{
+width:100%;
+}
+
+}
+
+</style>
 
 </body>
 </html>
