@@ -198,3 +198,110 @@ window.removeItem=removeItem;
 window.clearCart=clearCart;
 
 window.goToCheckout=goToCheckout;
+
+// ==========================
+// SuitFlick Final Cart.js
+// Part 3
+// ==========================
+
+// ==========================
+// Move To Wishlist
+// ==========================
+
+function moveToWishlist(index){
+
+let wishlist=JSON.parse(localStorage.getItem("wishlist"))||[];
+
+wishlist.push(cart[index]);
+
+localStorage.setItem("wishlist",JSON.stringify(wishlist));
+
+cart.splice(index,1);
+
+localStorage.setItem("cart",JSON.stringify(cart));
+
+showToast("❤️ Moved To Wishlist");
+
+loadCart();
+
+updateCartCount();
+
+}
+
+// ==========================
+// Free Delivery
+// ==========================
+
+function updateFreeDelivery(){
+
+const progress=document.getElementById("freeDelivery");
+
+if(!progress) return;
+
+let total=0;
+
+cart.forEach(item=>{
+
+total+=Number(item.price)*(Number(item.qty)||1);
+
+});
+
+if(total>=999){
+
+progress.innerHTML="🎉 Congratulations! You got FREE Delivery.";
+
+}else{
+
+const left=999-total;
+
+progress.innerHTML=`Add ₹${left} more to get FREE Delivery`;
+
+}
+
+}
+
+// ==========================
+// Cart Savings
+// ==========================
+
+function updateSavings(){
+
+const saving=document.getElementById("cartSavings");
+
+if(!saving) return;
+
+let saved=0;
+
+cart.forEach(item=>{
+
+if(item.offerPrice){
+
+saved+=(Number(item.price)-Number(item.offerPrice))*(Number(item.qty)||1);
+
+}
+
+});
+
+saving.innerHTML="You Saved ₹"+saved;
+
+}
+
+// ==========================
+// Initialize
+// ==========================
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+loadCart();
+
+updateFreeDelivery();
+
+updateSavings();
+
+});
+
+// ==========================
+// Global Functions
+// ==========================
+
+window.moveToWishlist=moveToWishlist;
