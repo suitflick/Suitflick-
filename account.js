@@ -71,3 +71,113 @@ localStorage.setItem("adminLoggedIn","true");
 }
 
 });
+
+// ==========================
+// SuitFlick Final Account.js
+// Part 2
+// ==========================
+
+import {
+sendPasswordResetEmail,
+signOut
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js";
+
+// ==========================
+// Forgot Password
+// ==========================
+
+const forgotBtn=document.getElementById("forgotPasswordBtn");
+
+if(forgotBtn){
+
+forgotBtn.addEventListener("click",resetPassword);
+
+}
+
+async function resetPassword(){
+
+const email=document.getElementById("adminEmail").value.trim();
+
+if(email===""){
+
+showToast("Enter your Email");
+
+return;
+
+}
+
+try{
+
+await sendPasswordResetEmail(auth,email);
+
+showToast("📧 Password Reset Email Sent");
+
+}catch(error){
+
+console.error(error);
+
+showToast("❌ Failed to Send Email");
+
+}
+
+}
+
+// ==========================
+// Logout
+// ==========================
+
+const logoutBtn=document.getElementById("logoutBtn");
+
+if(logoutBtn){
+
+logoutBtn.addEventListener("click",logoutAdmin);
+
+}
+
+async function logoutAdmin(){
+
+try{
+
+await signOut(auth);
+
+localStorage.removeItem("adminLoggedIn");
+
+showToast("👋 Logged Out");
+
+setTimeout(()=>{
+
+window.location.href="account.html";
+
+},1000);
+
+}catch(error){
+
+console.error(error);
+
+showToast("Logout Failed");
+
+}
+
+}
+
+// ==========================
+// Session Check
+// ==========================
+
+function checkSession(){
+
+if(localStorage.getItem("adminLoggedIn")==="true"){
+
+const loginBox=document.getElementById("loginBox");
+
+if(loginBox){
+
+loginBox.style.display="none";
+
+}
+
+}
+
+}
+
+document.addEventListener("DOMContentLoaded",checkSession);
