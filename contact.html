@@ -1,55 +1,271 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<title>Contact</title>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contact Us | SuitFlick</title>
+
 <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
 <header>
-<div class="logo">SuitFlick</div>
 
-<nav>
+<div class="logo">
+
+<a href="index.html">SuitFlick</a>
+
+</div>
+
+<div class="menu-icon" onclick="toggleMenu()">
+
+☰
+
+</div>
+
+<nav id="navbar">
+
 <a href="index.html">Home</a>
+
 <a href="shop.html">Shop</a>
+
 <a href="wishlist.html">Wishlist</a>
+
 <a href="cart.html">
+
 Cart (<span id="cartCount">0</span>)
+
 </a>
-<a href="account.html">Account</a>
+
 <a href="contact.html">Contact</a>
-<a href="admin.html">Admin</a>
+
+<a href="account.html">Account</a>
+
 </nav>
 
 </header>
 
-<section class="whatsapp">
+<section class="contact-hero">
 
-<h2>Order on WhatsApp</h2>
+<h1>Contact Us</h1>
 
-<p>Click below to place your order.</p>
+<p>
 
-<a href="https://wa.me/91YOURNUMBER">
+We're here to help! Feel free to contact us anytime.
 
-<button>Chat on WhatsApp</button>
-
-</a>
+</p>
 
 </section>
 
-...
-<!-- Professional Footer yahan paste hoga -->
+<section class="contact-section">
+
+<div class="contact-info">
+
+<h2>Get In Touch</h2>
+
+<p>
+
+📧 <strong>Email:</strong><br>
+
+support@suitflick.com
+
+</p>
+
+<p>
+
+📱 <strong>WhatsApp:</strong><br>
+
++91 XXXXXXXXXX
+
+</p>
+
+<p>
+
+🕒 <strong>Support Hours:</strong><br>
+
+Monday - Saturday<br>
+
+10:00 AM – 7:00 PM
+
+</p>
+
+<p>
+
+📍 <strong>Location:</strong><br>
+
+India
+
+</p>
+
+</div>
+
+<div class="contact-form">
+
+<h2>Send Us a Message</h2>
+
+<form id="contactForm">
+
+<input
+type="text"
+placeholder="Full Name"
+required>
+
+<input
+type="email"
+placeholder="Email Address"
+required>
+
+<input
+type="tel"
+placeholder="Mobile Number"
+required>
+
+<textarea
+rows="6"
+placeholder="Type your message..."
+required>
+</textarea>
+
+<button type="submit">
+
+Send Message
+
+</button>
+
+</form>
+
+</div>
+
+</section>
+
+<!-- FAQ -->
+
+<section class="contact-faq">
+
+<h2>Frequently Asked Questions</h2>
+
+<div class="faq-item">
+
+<h3>How can I place an order?</h3>
+
+<p>
+Browse products, add them to your cart, proceed to checkout and complete the payment using the UPI QR Code.
+</p>
+
+</div>
+
+<div class="faq-item">
+
+<h3>How can I contact customer support?</h3>
+
+<p>
+You can contact us through Email or WhatsApp during support hours.
+</p>
+
+</div>
+
+<div class="faq-item">
+
+<h3>How long does delivery take?</h3>
+
+<p>
+Orders are usually delivered within 3–7 business days, depending on your location.
+</p>
+
+</div>
+
+</section>
+
+<!-- SOCIAL MEDIA -->
+
+<section class="social-media">
+
+<h2>Follow SuitFlick</h2>
+
+<div class="social-links">
+
+<a href="#">📸 Instagram</a>
+
+<a href="#">📘 Facebook</a>
+
+<a href="#">▶ YouTube</a>
+
+<a href="#">📌 Pinterest</a>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
 
 <footer class="footer">
 
-...
+<div class="footer-container">
+
+<div class="footer-box">
+
+<h3>SuitFlick</h3>
+
+<p>
+
+Premium Women's Fashion Store for Suits, Sarees & Lehengas.
+
+</p>
+
+</div>
+
+<div class="footer-box">
+
+<h3>Quick Links</h3>
+
+<a href="about.html">About Us</a><br>
+
+<a href="shop.html">Shop</a><br>
+
+<a href="privacy.html">Privacy Policy</a><br>
+
+<a href="terms.html">Terms & Conditions</a><br>
+
+<a href="shipping.html">Shipping Policy</a><br>
+
+<a href="refund.html">Return & Refund Policy</a><br>
+
+<a href="faq.html">FAQ</a>
+
+</div>
+
+<div class="footer-box">
+
+<h3>Customer Support</h3>
+
+<p>Email: support@suitflick.com</p>
+
+<p>WhatsApp: +91 XXXXXXXXXX</p>
+
+<p>Mon–Sat | 10:00 AM – 7:00 PM</p>
+
+</div>
+
+</div>
+
+<hr>
+
+<p class="copyright">
+
+© 2026 SuitFlick. All Rights Reserved.
+
+</p>
 
 </footer>
 
 <script src="script.js"></script>
 
-<script src="slider.js"></script>
-
 </body>
+
 </html>
