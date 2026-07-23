@@ -126,3 +126,134 @@ Delete
 updateSummary();
 
 }
+
+// ==========================
+// SuitFlick Final Orders.js
+// Part 2
+// ==========================
+
+// Update Status
+
+async function changeStatus(id,status){
+
+try{
+
+await updateDoc(doc(db,"orders",id),{
+
+status:status
+
+});
+
+showToast("Order Updated");
+
+loadOrders();
+
+}catch(error){
+
+console.error(error);
+
+showToast("Update Failed");
+
+}
+
+}
+
+// Delete Order
+
+async function deleteOrder(id){
+
+const ok=confirm("Delete this order?");
+
+if(!ok) return;
+
+try{
+
+await deleteDoc(doc(db,"orders",id));
+
+showToast("Order Deleted");
+
+loadOrders();
+
+}catch(error){
+
+console.error(error);
+
+showToast("Delete Failed");
+
+}
+
+}
+
+// Summary
+
+function updateSummary(){
+
+document.getElementById("totalOrders").innerText=totalOrders;
+
+document.getElementById("pendingOrders").innerText=pendingOrders;
+
+document.getElementById("deliveredOrders").innerText=deliveredOrders;
+
+document.getElementById("totalRevenue").innerText="₹"+totalRevenue;
+
+}
+
+// Search Orders
+
+function searchOrders(){
+
+const input=document
+.getElementById("searchOrders")
+.value
+.toLowerCase();
+
+const cards=document.querySelectorAll(".order-card");
+
+cards.forEach(card=>{
+
+const text=card.innerText.toLowerCase();
+
+card.style.display=text.includes(input)
+?"block"
+:"none";
+
+});
+
+}
+
+window.searchOrders=searchOrders;
+
+// ==========================
+// SuitFlick Final Orders.js
+// Part 3
+// ==========================
+
+// Auto Refresh
+
+setInterval(()=>{
+
+loadOrders();
+
+},30000);
+
+// Global
+
+window.changeStatus=changeStatus;
+
+window.deleteOrder=deleteOrder;
+
+// Admin Login Check
+
+if(localStorage.getItem("adminLoggedIn")!=="true"){
+
+window.location.href="account.html";
+
+}
+
+// Initialize
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+loadOrders();
+
+});
