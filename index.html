@@ -1,13 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SuitFlick | Women's Ethnic Wear</title>
+<title>SuitFlick | Women's Fashion</title>
+
+<meta name="description"
+content="Shop Premium Women's Suits, Sarees & Lehengas at SuitFlick.">
 
 <link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="icon" href="images/logo.png">
 
 </head>
 
@@ -15,226 +28,405 @@
 
 <header>
 
-<div class="logo">SuitFlick</div>
+<div class="logo">
 
-<div class="menu-icon" onclick="toggleMenu()">☰</div>
+<a href="index.html">
+
+<img src="images/logo.png" alt="SuitFlick Logo">
+
+</a>
+
+</div>
 
 <nav id="navbar">
 
 <a href="index.html">Home</a>
+
 <a href="shop.html">Shop</a>
-<a href="wishlist.html">Wishlist</a>
-<a href="cart.html">
-Cart (<span id="cartCount">0</span>)
-</a>
+
+<a href="wishlist.html">Wishlist ❤️</a>
+
+<a href="cart.html">Cart 🛒 <span id="cartCount">0</span></a>
+
+<a href="account.html">Account</a>
 
 <a href="contact.html">Contact</a>
 
 </nav>
 
-</header>
+<div class="menu-icon" onclick="toggleMenu()">
 
-<div class="security-notice">
-
-<b>🔒 Security Notice</b><br><br>
-
-Please do not make any payment until your order is confirmed by our team.
-
-Cash on Delivery orders require ₹200 advance.
+☰
 
 </div>
+
+</header>
+
+<!-- HERO SECTION -->
 
 <section class="hero">
 
-<h1>Discover Beautiful Women's Ethnic Wear</h1>
+<div class="hero-content">
+
+<h1>
+
+Elegant Indian Women's Fashion
+
+</h1>
 
 <p>
 
-Anarkali • Cotton Suits • Kurta Sets • Party Wear
+Discover Premium Suits, Sarees & Lehengas for Every Occasion.
 
 </p>
 
-<button onclick="location.href='shop.html'">
+<a href="shop.html" class="shop-btn">
 
 Shop Now
 
-</button>
-
-</section>
-
-<section class="offers">
-
-<h2>🔥 Today's Offers</h2>
-
-<div class="product-grid">
-
-<div class="product-card">
-
-<h3>🎉 Flat 25% OFF</h3>
-
-<p>Cotton Collection</p>
+</a>
 
 </div>
 
-<div class="product-card">
+<div class="hero-image">
 
-<h3>🚚 Free Shipping</h3>
-
-<p>Above ₹999</p>
-
-</div>
-
-<div class="product-card">
-
-<h3>✨ New Arrivals</h3>
-
-<p>Latest Designs</p>
-
-</div>
+<img src="images/hero-banner.jpg" alt="Indian Women's Fashion">
 
 </div>
 
 </section>
 
-<section class="products">
-
-<h2>Featured Collection</h2>
-
-<div class="product-grid">
-
-<div class="product-card">
-
-<span class="badge">SALE</span>
-
-<img src="images/suit1.jpg">
-
-<h3>Floral Suit</h3>
-
-<p>₹1499</p>
-
-<button onclick="addToCart('Floral Suit',1499)">
-
-Add To Cart
-
-</button>
-
-</div>
-
-<div class="product-card">
-
-<span class="badge">NEW</span>
-
-<img src="images/suit2.jpg">
-
-<h3>Kurta Set</h3>
-
-<p>₹999</p>
-
-<button onclick="addToCart('Kurta Set',999)">
-
-Add To Cart
-
-</button>
-
-</div>
-
-<div class="product-card">
-
-<span class="badge">HOT</span>
-
-<img src="images/suit3.jpg">
-
-<h3>Party Wear Suit</h3>
-
-<p>₹2499</p>
-
-<button onclick="addToCart('Party Wear Suit',2499)">
-
-Add To Cart
-
-</button>
-
-</div>
-
-</div>
-
-</section>
+<!-- CATEGORIES -->
 
 <section class="categories">
 
 <h2>Shop By Category</h2>
 
-<div class="product-grid">
+<div class="category-grid">
 
-<div class="product-card">Anarkali</div>
+<a href="shop.html?category=Suit" class="category-card">
 
-<div class="product-card">Cotton</div>
+<img src="images/category-suit.jpg" alt="Suits">
 
-<div class="product-card">Kurta Set</div>
+<h3>Suits</h3>
 
-<div class="product-card">Sharara</div>
+</a>
 
-<div class="product-card">Party Wear</div>
+<a href="shop.html?category=Saree" class="category-card">
 
-<div class="product-card">Festive Collection</div>
+<img src="images/category-saree.jpg" alt="Sarees">
+
+<h3>Sarees</h3>
+
+</a>
+
+<a href="shop.html?category=Lehenga" class="category-card">
+
+<img src="images/category-lehenga.jpg" alt="Lehengas">
+
+<h3>Lehengas</h3>
+
+</a>
 
 </div>
 
 </section>
 
+<!-- TRENDING COLLECTION -->
+
+<section class="trending">
+
+<h2>Trending Collection</h2>
+
+<div id="trendingProducts" class="product-grid">
+
+<!-- Firebase Products -->
+
+</div>
+
+</section>
+
+<!-- NEW ARRIVALS -->
+
+<section class="new-arrivals">
+
+<h2>New Arrivals</h2>
+
+<div id="newProducts" class="product-grid">
+
+<!-- Firebase Products -->
+
+</div>
+
+</section>
+
+<!-- BEST SELLERS -->
+
+<section class="best-sellers">
+
+<h2>Best Sellers</h2>
+
+<div id="bestSellerProducts" class="product-grid">
+
+<!-- Firebase Products -->
+
+</div>
+
+</section>
+
+<!-- OFFERS -->
+
+<section class="offers">
+
+<div class="offer-card">
+
+<h2>Flat 20% OFF</h2>
+
+<p>On Selected Women's Suits</p>
+
+</div>
+
+<div class="offer-card">
+
+<h2>Free Delivery</h2>
+
+<p>On Orders Above ₹999</p>
+
+</div>
+
+<div class="offer-card">
+
+<h2>New Collection</h2>
+
+<p>Latest Sarees & Lehengas Available</p>
+
+</div>
+
+</section>
+
+<!-- WHY CHOOSE US -->
+
+<section class="why-us">
+
+<h2>Why Choose SuitFlick?</h2>
+
+<div class="features">
+
+<div class="feature">
+
+<h3>✨ Premium Quality</h3>
+
+<p>Carefully selected fabrics with elegant designs.</p>
+
+</div>
+
+<div class="feature">
+
+<h3>🚚 Fast Delivery</h3>
+
+<p>Quick shipping across India.</p>
+
+</div>
+
+<div class="feature">
+
+<h3>💳 Secure Payment</h3>
+
+<p>Simple UPI QR payment process.</p>
+
+</div>
+
+<div class="feature">
+
+<h3>❤️ Easy Shopping</h3>
+
+<p>Wishlist, Cart & Smooth Checkout Experience.</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CUSTOMER REVIEWS -->
+
+<section class="reviews">
+
+<h2>Happy Customers</h2>
+
+<div class="review-grid">
+
+<div class="review-card">
+
+⭐⭐⭐⭐⭐
+
+<p>
+Beautiful quality suit. Fabric is amazing.
+</p>
+
+<h4>Priya Sharma</h4>
+
+</div>
+
+<div class="review-card">
+
+⭐⭐⭐⭐⭐
+
+<p>
+Exactly same as shown in photos.
+</p>
+
+<h4>Neha Verma</h4>
+
+</div>
+
+<div class="review-card">
+
+⭐⭐⭐⭐⭐
+
+<p>
+Very comfortable and perfect fitting.
+</p>
+
+<h4>Anjali Gupta</h4>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- NEWSLETTER -->
+
+<section class="newsletter">
+
+<h2>Stay Updated</h2>
+
+<p>
+
+Get updates about new arrivals and exclusive offers.
+
+</p>
+
+<input
+type="email"
+placeholder="Enter your email">
+
+<button>
+
+Subscribe
+
+</button>
+
+</section>
+
+<!-- INSTAGRAM GALLERY -->
+
+<section class="gallery">
+
+<h2>Fashion Gallery</h2>
+
+<div class="gallery-grid">
+
+<img src="images/gallery1.jpg">
+
+<img src="images/gallery2.jpg">
+
+<img src="images/gallery3.jpg">
+
+<img src="images/gallery4.jpg">
+
+<img src="images/gallery5.jpg">
+
+<img src="images/gallery6.jpg">
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
 <footer class="footer">
 
 <div class="footer-container">
 
-<div>
+<div class="footer-box">
 
 <h3>SuitFlick</h3>
 
 <p>
-
-Premium Women's Ethnic Wear Collection.
-
+Premium Women's Fashion Store for Suits, Sarees & Lehengas.
 </p>
 
 </div>
 
-<div>
+<div class="footer-box">
+
+<h3>Quick Links</h3>
+
+<a href="index.html">Home</a>
+
+<a href="shop.html">Shop</a>
+
+<a href="wishlist.html">Wishlist</a>
+
+<a href="cart.html">Cart</a>
+
+<a href="contact.html">Contact</a>
+
+</div>
+
+<div class="footer-box">
 
 <h3>Customer Support</h3>
 
-<a href="contact.html">Contact Us</a>
-
 <a href="about.html">About Us</a>
 
-</div>
+<a href="shipping.html">Shipping Policy</a>
 
-<div>
+<a href="refund.html">Return & Refund Policy</a>
 
-<h3>Policies</h3>
+<a href="privacy.html">Privacy Policy</a>
 
-<a href="#">Privacy Policy</a>
+<a href="terms.html">Terms & Conditions</a>
 
-<a href="#">Return Policy</a>
-
-<a href="#">Shipping Policy</a>
-
-<a href="#">Terms & Conditions</a>
+<a href="faq.html">FAQ</a>
 
 </div>
 
+<div class="footer-box">
+
+<h3>Follow Us</h3>
+
+<a href="#">Instagram</a>
+
+<a href="#">Facebook</a>
+
+<a href="#">YouTube</a>
+
+<a href="#">Pinterest</a>
+
 </div>
 
-<div class="footer-bottom">
+</div>
+
+<hr>
+
+<p class="copyright">
 
 © 2026 SuitFlick. All Rights Reserved.
 
-</div>
+</p>
 
 </footer>
 
-<script src="script.js"></script>
+<!-- JAVASCRIPT -->
 
-<script src="slider.js"></script>
+<script type="module" src="firebase.js"></script>
+
+<script type="module" src="shop.js"></script>
+
+<script src="script.js"></script>
 
 </body>
 
