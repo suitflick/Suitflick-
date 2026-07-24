@@ -40,7 +40,7 @@ await signInWithEmailAndPassword(auth,email,password);
 
 localStorage.setItem("adminLoggedIn","true");
 
-showToast("✅ Login Successful");
+alert("Login Successful");
 
 setTimeout(()=>{
 
@@ -52,7 +52,8 @@ window.location.href="admin.html";
 
 console.error(error);
 
-showToast("❌ Invalid Email or Password");
+alert(error.code);
+console.error(error);
 
 }
 
