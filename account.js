@@ -14,7 +14,16 @@ import { app } from "./firebase.js";
 
 const auth=getAuth(app);
 
-const loginForm=document.getElementById("adminLoginForm");
+const
+
+async function loginAdmin(e){
+
+e.preventDefault();
+
+alert("Login button clicked");
+
+const email = document.getElementById("adminEmail").value.trim();
+ loginForm=document.getElementById("adminLoginForm");
 
 if(loginForm){
 
