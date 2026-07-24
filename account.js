@@ -1,193 +1,141 @@
 // ==========================
 // SuitFlick Final Account.js
-// Part 1
+// Part 1 - Imports + Login
 // ==========================
-
-import {
-getAuth,
-signInWithEmailAndPassword,
-onAuthStateChanged,
-signOut
-} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js";
 
 import { app } from "./firebase.js";
 
-const auth=getAuth(app);
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut,
+  sendPasswordResetEmail
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js";
 
-const
+const auth = getAuth(app);
 
-async function loginAdmin(e){
+// ==========================
+// Login
+// ==========================
 
-e.preventDefault();
+const loginForm = document.getElementById("adminLoginForm");
 
-alert("Login button clicked");
+if (loginForm) {
+  loginForm.addEventListener("submit", loginAdmin);
+}
 
-const email = document.getElementById("adminEmail").value.trim();
- loginForm=document.getElementById("adminLoginForm");
+async function loginAdmin(e) {
+  e.preventDefault();
 
-if(loginForm){
+  const email = document.getElementById("adminEmail").value.trim();
+  const password = document.getElementById("adminPassword").value;
 
-loginForm.addEventListener("submit",loginAdmin);
+  if (!email || !password) {
+    alert("Please enter Email and Password");
+    return;
+  }
 
+  try {
+    await signInWithEmailAndPassword(auth, email, password);
+
+    localStorage.setItem("adminLoggedIn", "true");
+
+    alert("✅ Login Successful");
+
+    window.location.href = "admin.html";
+
+  } catch (error) {
+    console.error(error);
+    alert(error.message);
+  }
 }
 
 // ==========================
-// Admin Login
+// Part 2 - Forgot Password + Logout
 // ==========================
 
-async function loginAdmin(e){
+// Forgot Password
+const forgotBtn = document.getElementById("forgotPasswordBtn");
 
-e.preventDefault();
-
-const email=document.getElementById("adminEmail").value.trim();
-
-const password=document.getElementById("adminPassword").value;
-
-try{
-
-await signInWithEmailAndPassword(auth,email,password);
-
-localStorage.setItem("adminLoggedIn","true");
-
-alert("Login Successful");
-
-setTimeout(()=>{
-
-window.location.href="admin.html";
-
-},1000);
-
-}catch(error){
-
-console.error(error);
-
-alert(error.code);
-console.error(error);
-
+if (forgotBtn) {
+  forgotBtn.addEventListener("click", resetPassword);
 }
 
+async function resetPassword() {
+  const email = document.getElementById("adminEmail").value.trim();
+
+  if (!email) {
+    alert("Please enter your email first.");
+    return;
+  }
+
+  try {
+    await sendPasswordResetEmail(auth, email);
+    alert("📧 Password reset email sent.");
+  } catch (error) {
+    console.error(error);
+    alert(error.message);
+  }
+}
+
+// Logout
+const logoutBtn = document.getElementById("logoutBtn");
+
+if (logoutBtn) {
+  logoutBtn.addEventListener("click", logoutAdmin);
+}
+
+async function logoutAdmin() {
+  try {
+    await signOut(auth);
+
+    localStorage.removeItem("adminLoggedIn");
+
+    alert("👋 Logged Out Successfully");
+
+    window.location.href = "account.html";
+
+  } catch (error) {
+    console.error(error);
+    alert(error.message);
+  }
 }
 
 // ==========================
-// Check Login
+// Part 3 - Session Check
 // ==========================
 
-onAuthStateChanged(auth,(user)=>{
+// Firebase Auth State
+onAuthStateChanged(auth, (user) => {
 
-if(user){
-
-localStorage.setItem("adminLoggedIn","true");
-
-}
+  if (user) {
+    localStorage.setItem("adminLoggedIn", "true");
+  } else {
+    localStorage.removeItem("adminLoggedIn");
+  }
 
 });
 
 // ==========================
-// SuitFlick Final Account.js
-// Part 2
+// Check Session
 // ==========================
 
-import {
-sendPasswordResetEmail,
-signOut
-} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js";
+function checkSession() {
+
+  const loginBox = document.getElementById("loginBox");
+
+  if (
+    localStorage.getItem("adminLoggedIn") === "true" &&
+    loginBox
+  ) {
+    loginBox.style.display = "none";
+  }
+
+}
+
+document.addEventListener("DOMContentLoaded", checkSession);
 
 // ==========================
-// Forgot Password
+// End of account.js
 // ==========================
-
-const forgotBtn=document.getElementById("forgotPasswordBtn");
-
-if(forgotBtn){
-
-forgotBtn.addEventListener("click",resetPassword);
-
-}
-
-async function resetPassword(){
-
-const email=document.getElementById("adminEmail").value.trim();
-
-if(email===""){
-
-showToast("Enter your Email");
-
-return;
-
-}
-
-try{
-
-await sendPasswordResetEmail(auth,email);
-
-showToast("📧 Password Reset Email Sent");
-
-}catch(error){
-
-console.error(error);
-
-showToast("❌ Failed to Send Email");
-
-}
-
-}
-
-// ==========================
-// Logout
-// ==========================
-
-const logoutBtn=document.getElementById("logoutBtn");
-
-if(logoutBtn){
-
-logoutBtn.addEventListener("click",logoutAdmin);
-
-}
-
-async function logoutAdmin(){
-
-try{
-
-await signOut(auth);
-
-localStorage.removeItem("adminLoggedIn");
-
-showToast("👋 Logged Out");
-
-setTimeout(()=>{
-
-window.location.href="account.html";
-
-},1000);
-
-}catch(error){
-
-console.error(error);
-
-showToast("Logout Failed");
-
-}
-
-}
-
-// ==========================
-// Session Check
-// ==========================
-
-function checkSession(){
-
-if(localStorage.getItem("adminLoggedIn")==="true"){
-
-const loginBox=document.getElementById("loginBox");
-
-if(loginBox){
-
-loginBox.style.display="none";
-
-}
-
-}
-
-}
-
-document.addEventListener("DOMContentLoaded",checkSession);
