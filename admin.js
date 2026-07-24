@@ -442,3 +442,7 @@ window.logoutAdmin=logoutAdmin;
 // ==========================
 
 loadProducts();
+
+function showToast(message) {
+  alert(message);
+}
